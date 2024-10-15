@@ -25,13 +25,74 @@ Hypothesen aufgestellt.
 -  Finden von grundsätzlichen Modellgleichungen für die Modellbildung
 -  Identifikation der relevanten Parameter zu bestmöglichen Systemabbildung
 
-![alt text](Pictures/induktiv.png)
-## Modellbasiertes Problem Lösen
+![Induktive Modellierung](Pictures/induktiv.png)
+## Modellbasiertes Problemlösen
+![Modellbasiertes Problemlösen](Pictures/modellbasiert.png)
+
+Innerhalb der Modellwelt erfolgt die Lösung der Aufgabe.
+Das Problem kann durch Experimentieren mit dem Modell oder 
+durch die Anwendung mathematischer Verfahren und Theorien 
+erfolgen.
+
+
 ### Modellierung
+Für ein reales System wird ein Modell gebildet. Es kann sich dabei um künstliche oder natürliche Systeme handeln, welche 
+bereits existieren oder nur geplant sein können.   
 ### Abstraktion
 ### Idealisierung
 ### Vereinfachung
 ### Aggregation
 ## Kontinuierliche Modellierung und Simulation
+Die Modellierung erfolgt in Modellformalismen, das sind 
+grundlegende Simulationsansätze, die sich hauptsächlich in der
+Modellierung der Zeit unterscheiden.
+![Kontinuierliche Simulation](Pictures/kontinuierlich.png)
+Kontinuierliches (stetiges) Vehalten wird mittels 
+Differentialsystemen modelliert. Bei der Simulation kommt
+numerische Integration zum Einsatz. Um von einem Stützpunkt
+zum nächsten rechnen zu können, muss das kontinuierliche 
+Verhalten diskretisiert werden.
+
+
+
+
 ## Diskrete Modellierung und Simulation
+
+### Diskrete schrittweise Simulation
+![Diskrete schrittweise Simulation](Pictures/diskret-schrittweise.png)
+
+Diese Modelle werden mit Differenzensysteme und endlichen
+Automaten abgebildet. Zustände werden anhand von definierten
+Überführungsfunktionen von einem Zeitpunkt in den nächsten
+überführt. Bei der Simulation kommt Time Slicing 
+(zeitgetaktetes Verfahren) zum Einsatz. 
+
+### Diskrete ereignisorientierte Simulation
+![Diskrete ereignisorientierte Simulation](Pictures/diskret-ereignisorientiert.png)
+Bei diskretenen Ereignissystemen (DEVS) werden Zustandsänderungen nur bei Ereignissen der betroffenen 
+Zustände durchgeführt. Diese Ereignisse können immer auftreten,
+es gibt also keinen fixen zeitlichen Takt. Deie Zeitspanne 
+zwischen den Ereignissen ist wesentlich. Simuliert werden 
+solche Systeme mit Ereignislisten. Dabei wird die Liste von
+einem Ereignis zum nächsten abgearbeitet.
+
 ## Regelkreise
+Oft soll eine physikalische Größe (z.Bsp.: Druck, Durchfluss,
+Temperatur) einen gewünschten Sollwert annehmen. Soll diese
+Größe ihren Wert beibehalten, selbst wenn äußere, nicht 
+konstante und vorhersehbare Bedingungen auf sie einwirken
+so ist eine Regelung erforderlich.
+![Regelkreis](Pictures/regelkreis.png)
+Regelkreise sind Rückkopplungskreise, man spricht auch von Feedback im System.
+![Regelkreis Graph](Pictures/regelkreis-werte.png)
+PID-Regler werden in der Praxis sehr häufig angewandt. Sie 
+bestehen aus 3 mathematischen Prinzipien:
+-  Proportionalanteil P: Stellgröße abhängig von der aktuellen 
+Abweichung
+- Integralanteil I: Stellgröße abhängig von der Summe der 
+Abweichungen
+- Differentialanteil: Stellgröße abhängig von der aktuellen 
+Veränderung derAbweichung
+
+Wesentlich für die korrekte Funktionsweise der Regelung ist
+die Wahl der richtigen Parameter.
