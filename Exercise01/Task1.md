@@ -101,10 +101,11 @@ die Wahl der richtigen Parameter.
 
 
 ---
-Quellen:
+#### Quellen:
 Folien + Mitschrift
 
-Unterlagen von Herrn Prof Herbert Prähofer 
+Unterlagen von Herrn Prof. Herbert Prähofer
+ 
 https://www.ssw.uni-linz.ac.at/General/Staff/HP/SimTech_SS04/Folien/08-DeduktiveModellierung.pdf
 https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/09-InduktiveModellierung.pdf
 https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/07-Regelkreise.pdf
