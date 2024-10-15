@@ -39,9 +39,13 @@ erfolgen.
 Für ein reales System wird ein Modell gebildet. Es kann sich dabei um künstliche oder natürliche Systeme handeln, welche 
 bereits existieren oder nur geplant sein können.   
 ### Abstraktion
+Abstraktion ist der Prozess, bei dem die Details eines Systems oder eines Objekts ausgeblendet werden, um sich auf die wesentlichen Aspekte zu konzentrieren. Dabei werden unwichtige Details ausgeklammert, sodass man nur das betrachtet, was für das aktuelle Problem relevant ist.
 ### Idealisierung
+Idealisierung beschreibt die Vereinfachung eines Modells oder einer Theorie, indem man bestimmte reale Bedingungen ausklammert oder vereinfachte Annahmen trifft. Dies dient dazu, komplexe Systeme leichter analysieren zu können, auch wenn die Realität komplexer ist.
 ### Vereinfachung
+Vereinfachung geht noch einen Schritt weiter als Abstraktion oder Idealisierung, indem sie gezielt komplexe Details entfernt, um ein Modell zugänglicher oder leichter verständlich zu machen. Dabei nimmt man bewusst in Kauf, dass bestimmte Informationen verloren gehen oder dass das Modell weniger präzise ist.
 ### Aggregation
+Aggregation bedeutet, dass mehrere Einheiten oder Informationen zu einem Ganzen zusammengefasst werden. Durch die Zusammenführung von Daten oder Objekten entstehen oft neue Bedeutungen oder Muster, die im Detail nicht sichtbar wären.
 ## Kontinuierliche Modellierung und Simulation
 Die Modellierung erfolgt in Modellformalismen, das sind 
 grundlegende Simulationsansätze, die sich hauptsächlich in der
@@ -52,8 +56,6 @@ Differentialsystemen modelliert. Bei der Simulation kommt
 numerische Integration zum Einsatz. Um von einem Stützpunkt
 zum nächsten rechnen zu können, muss das kontinuierliche 
 Verhalten diskretisiert werden.
-
-
 
 
 ## Diskrete Modellierung und Simulation
@@ -85,14 +87,26 @@ so ist eine Regelung erforderlich.
 ![Regelkreis](Pictures/regelkreis.png)
 Regelkreise sind Rückkopplungskreise, man spricht auch von Feedback im System.
 ![Regelkreis Graph](Pictures/regelkreis-werte.png)
-PID-Regler werden in der Praxis sehr häufig angewandt. Sie 
+In der Praxis werden sehr häufig PID-Regler angewandt. Sie 
 bestehen aus 3 mathematischen Prinzipien:
 -  Proportionalanteil P: Stellgröße abhängig von der aktuellen 
 Abweichung
 - Integralanteil I: Stellgröße abhängig von der Summe der 
 Abweichungen
 - Differentialanteil: Stellgröße abhängig von der aktuellen 
-Veränderung derAbweichung
+Veränderung der Abweichung
 
 Wesentlich für die korrekte Funktionsweise der Regelung ist
 die Wahl der richtigen Parameter.
+
+
+---
+Quellen:
+Folien + Mitschrift
+
+Unterlagen von Herrn Prof Herbert Prähofer 
+https://www.ssw.uni-linz.ac.at/General/Staff/HP/SimTech_SS04/Folien/08-DeduktiveModellierung.pdf
+https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/09-InduktiveModellierung.pdf
+https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/07-Regelkreise.pdf
+
+--- 
