@@ -71,12 +71,18 @@ Wesentlich für die korrekte Funktionsweise der Regelung ist die Wahl der richti
 
 ---
 #### Quellen:
-Folien + Mitschrift
 
-Unterlagen von Herrn Prof. Herbert Prähofer
+- Foliensatz von Herrn Prof. Stephan Winkler
+
+- Unterlagen von Herrn Prof. Herbert Prähofer
 
 https://www.ssw.uni-linz.ac.at/General/Staff/HP/SimTech_SS04/Folien/08-DeduktiveModellierung.pdf
 https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/09-InduktiveModellierung.pdf
 https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/07-Regelkreise.pdf
+
+*Die Foliensätze beruhen auf folgender Literatur:*
+F.E. Cellier, Continuous System Modeling, Springer, 1991
+D. Kelton, Simulation with Arena, McGrawHill, 1998.
+
 
 --- 
