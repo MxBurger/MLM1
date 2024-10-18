@@ -1,4 +1,4 @@
-# Modellierung und Simulation - Theorie
+# Task 1 (16 pt): Modeling and Simulation: Theory…
 
 ## Deduktive Modellierung
 Deduktive Modellierung beschreibt die Modellbildung aufgrund von Einsicht und Kenntnissen über das System.
@@ -80,7 +80,7 @@ https://www.ssw.uni-linz.ac.at/General/Staff/HP/SimTech_SS04/Folien/08-Deduktive
 https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/09-InduktiveModellierung.pdf
 https://ssw.jku.at/General/Staff/HP/SimTech_SS04/Folien/07-Regelkreise.pdf
 
-*Die Foliensätze beruhen auf folgender Literatur:*
+*beide Foliensätze beruhen auf folgender Literatur:*
 F.E. Cellier, Continuous System Modeling, Springer, 1991
 D. Kelton, Simulation with Arena, McGrawHill, 1998.
 
