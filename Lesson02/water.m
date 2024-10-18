@@ -5,19 +5,19 @@ function water(X0, A, B, u, tStep, tMax)
         A = log(0.95); % waterloss
         B = 1; % weight
         u = 1000; % inflow
-        tStep = 0.01;
-        tMax = 100;
+        tStep = 0.001;
+        tMax = 1000;
     end
 
+    tic
     x = X0;
     xProgress = [];
-
     for t = 0:tStep:tMax
         x_ = A*x + B*u;
         x = x + x_*tStep;
         xProgress = [xProgress x ];
     end
-
+    toc
 plot(0:tStep:tMax , xProgress);
 
 end
