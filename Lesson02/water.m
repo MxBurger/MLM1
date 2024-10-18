@@ -11,11 +11,15 @@ function water(X0, A, B, u, tStep, tMax)
 
     tic
     x = X0;
-    xProgress = [];
+    %xProgress = [];
+    xProgress = zeros(tMax / tStep, 1);
+    index = 1
     for t = 0:tStep:tMax
         x_ = A*x + B*u;
         x = x + x_*tStep;
-        xProgress = [xProgress x ];
+        %xProgress = [xProgress x ];
+        xProgress (index) = x;
+        index = index + 1;
     end
     toc
 plot(0:tStep:tMax , xProgress);
