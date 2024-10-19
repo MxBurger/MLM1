@@ -24,11 +24,11 @@ $x'(t)=x(t)*ln(0.95)+1000$
 
 Für die Simulation kann folgende Iterationsvorschrift erstellt werden:
 $tStep...Schrittweite \space der \space Simulation$
-1. Ermittle die Steigung $x'(0)$ (Initialwert) mit der oben aufgestellten Gleichung
-2. Wende die ermittelte Steigung an, um den Wert des ersten Iterationsschrittes zu erhalten:
-$x(0 + tStep)$ (erster Iterationsschritt) entspricht dann $x(0) + x'(0)*tStep$
-3. Ermittle für den ermittelten Wert erneut die Steigung und multipliziere sie mit $tStep$. Wende die nun mit $tStep$ korrigierte Steigung auf das aktuelle $x(t)$ an und erhalte das Ergebnis der nächsten Iteration.
-4. Wiederhole Schritt **3** bis zur gewünschten Iterationstiefe
+$i...IndexVariable \space der \space Simulationsschritte$
+
+$x(0)=100000$
+$x'(i)=x(i) * ln(0.95) + 10000$
+$x(i+1) = x(i)+x'(i)*tStep$
 
 Dieses Verfahren ist allgemein bekannt unter *explizites Eulerverfahren*.
 

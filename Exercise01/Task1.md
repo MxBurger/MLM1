@@ -66,7 +66,7 @@ In der Praxis werden sehr häufig PID-Regler angewandt. Sie  bestehen aus 3 math
 - Integralanteil I: Stellgröße abhängig von der Summe der Abweichungen
 - Differentialanteil: Stellgröße abhängig von der aktuellen Veränderung der Abweichung
 
-Wesentlich für die korrekte Funktionsweise der Regelung ist die Wahl der richtigen Parameter.
+Wesentlich für die korrekte Funktionsweise der Regelung ist die Wahl der richtigen Regler-Parameter.
 
 
 ---
