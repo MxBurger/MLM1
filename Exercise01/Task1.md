@@ -9,7 +9,8 @@ Diese beruhen auf:
 
 Allgemein gültige Gesetze und Kennntnise werden zu für den Anwendungsfall spezifischen Modellen übergeführt.
 
-![Deduktive Modellierung](Pictures/deduktiv.png)
+<img src="Pictures/deduktiv.png" width="200" alt="Deduktive Modellierung">
+
 
 ## Induktive Modellierung
 Bei induktiver Modellierung wird das Modell aufgrund von Annahmen, Beobachtungen und grundlegenden Modellierungsansätzen erstellt. Es werden Theorien und Hypothesen aufgestellt.
@@ -21,9 +22,12 @@ Bei induktiver Modellierung wird das Modell aufgrund von Annahmen, Beobachtungen
 -  Finden von grundsätzlichen Modellgleichungen für die Modellbildung
 -  Identifikation der relevanten Parameter zu bestmöglichen Systemabbildung
 
-![Induktive Modellierung](Pictures/induktiv.png)
+<img src="Pictures/induktiv.png" width="200" alt="Induktive Modellierung">
+
 ## Modellbasiertes Problemlösen
-![Modellbasiertes Problemlösen](Pictures/modellbasiert.png)
+
+<img src="Pictures/modellbasiert.png" width="200" alt="modellbasiertes Problemlösen">
+
 
 Innerhalb der Modellwelt erfolgt die Lösung der Aufgabe. Das Problem kann durch Experimentieren mit dem Modell oder durch die Anwendung mathematischer Verfahren und Theorien erfolgen.
 
@@ -40,27 +44,40 @@ Vereinfachung geht noch einen Schritt weiter als Abstraktion oder Idealisierung,
 Aggregation bedeutet, dass mehrere Einheiten oder Informationen zu einem Ganzen zusammengefasst werden. Durch die Zusammenführung von Daten oder Objekten entstehen oft neue Bedeutungen oder Muster, die im Detail nicht sichtbar wären.
 ## Kontinuierliche Modellierung und Simulation
 Die Modellierung erfolgt in Modellformalismen, das sind grundlegende Simulationsansätze, die sich hauptsächlich in der Modellierung der Zeit unterscheiden.
-![Kontinuierliche Simulation](Pictures/kontinuierlich.png)
+
+<img src="Pictures/kontinuierlich.png" width="200" alt="kontinuierliche Modellierung und Simulation">
+
 Kontinuierliches (stetiges) Vehalten wird mittels Differentialsystemen modelliert. Bei der Simulation kommt numerische Integration zum Einsatz. Um von einem Stützpunkt zum nächsten rechnen zu können, muss das kontinuierliche Verhalten diskretisiert werden.
 
 
 ## Diskrete Modellierung und Simulation
 
 ### Diskrete schrittweise Simulation
-![Diskrete schrittweise Simulation](Pictures/diskret-schrittweise.png)
+
+<img src="Pictures/diskret-schrittweise.png" width="200" alt="diskrete schrittweise Modellierung und Simulation">
+
 
 Diese Modelle werden mit Differenzensysteme und endlichen Automaten abgebildet. Zustände werden anhand von definierten
 Überführungsfunktionen von einem Zeitpunkt in den nächsten überführt. Bei der Simulation kommt Time Slicing (zeitgetaktetes Verfahren) zum Einsatz. 
 
 ### Diskrete ereignisorientierte Simulation
-![Diskrete ereignisorientierte Simulation](Pictures/diskret-ereignisorientiert.png)
+
+<img src="Pictures/diskret-ereignisorientiert.png" width="200" alt="diskrete ereignisorientierte Modellierung und Simulation">
+
 Bei diskretenen Ereignissystemen (DEVS) werden Zustandsänderungen nur bei Ereignissen der betroffenen Zustände durchgeführt. Diese Ereignisse können immer auftreten,es gibt also keinen fixen zeitlichen Takt. Deie Zeitspanne zwischen den Ereignissen ist wesentlich. Simuliert werden solche Systeme mit Ereignislisten. Dabei wird die Liste von einem Ereignis zum nächsten abgearbeitet.
+
+<div style="page-break-after: always;"></div>
 
 ## Regelkreise
 Oft soll eine physikalische Größe (z.Bsp.: Druck, Durchfluss,Temperatur) einen gewünschten Sollwert annehmen. Soll diese Größe ihren Wert beibehalten, selbst wenn äußere, nicht konstante und vorhersehbare Bedingungen auf sie einwirken so ist eine Regelung erforderlich.
-![Regelkreis](Pictures/regelkreis.png)
+
+<img src="Pictures/regelkreis.png" width="200" alt="Regelkreis">
+
 Regelkreise sind Rückkopplungskreise, man spricht auch von Feedback im System.
-![Regelkreis Graph](Pictures/regelkreis-werte.png)
+
+<img src="Pictures/regelkreis-werte.png" width="200" alt="Regelkreis Soll-/Istwert">
+
+
 In der Praxis werden sehr häufig PID-Regler angewandt. Sie  bestehen aus 3 mathematischen Prinzipien:
 -  Proportionalanteil P: Stellgröße abhängig von der aktuellen Abweichung
 - Integralanteil I: Stellgröße abhängig von der Summe der Abweichungen
