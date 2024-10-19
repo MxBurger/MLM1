@@ -36,7 +36,7 @@ Dieses Verfahren ist allgemein bekannt unter *explizites Eulerverfahren*.
 ## Ergebnisse
 
 Ergebnis mit $tStep=1.0$
-![alt text](Pictures/tStep1_0.png)
+![tStep = 1.0](Pictures/tStep1_0.png)
 
 $Equilibrium...19495.72575l$
 Erreicht nach ~430 Iterations-Schritten -> ~430h
@@ -44,16 +44,25 @@ Erreicht nach ~430 Iterations-Schritten -> ~430h
 ---
 
 Ergebnis mit $tStep=0.5$
-![alt text](Pictures/tStep0_5.png)
+![tStep = 0.5](Pictures/tStep0_5.png)
 $Equilibrium...19495.72575l$
 Erreicht nach ~885 Iterations-Schritten -> ~442.5h
 
 ---
 
 Ergebnis mit $tStep=0.1$
-![alt text](Pictures/tStep0_1.png)
+![tStep = 0.1](Pictures/tStep0_1.png)
 $Equilibrium...19495.72575l$
 Erreicht nach ~4460 Iterations-Schritten -> ~446h
 
 
 >Für die Feststellung des Equilibriums wurden 5 Nachkommastellen betrachtet.
+
+---
+
+Der Inflow ist in der Angabe als optional definiert, deshalb wurde auch eine Simulation ohne Inflow durchgeführt.
+
+Ergebnis mit $tStep=0.5$
+![Ohne Inflow](Pictures/without-inflow.png)
+
+Wenig überraschend nähert sich der Endzustand asymptotisch gegen 0.
