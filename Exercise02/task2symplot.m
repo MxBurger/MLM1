@@ -36,14 +36,14 @@ for i = 1:size(params, 1)
     L_val = params(i, 3);
     C_val = params(i, 4);
     
-    % Lösungen für x2(t) berechnen und substituieren
+    % Lösungen x2(t) berechnen und substituieren
     x2_sol = subs(sol.x2, [R1, R2, L, C, u], [R1_val, R2_val, L_val, C_val, u_val]);
     
-    % Plot für x2(t) mit den aktuellen Parameterwerten
+    % Plot x2(t) mit den aktuellen Parameterwerten
     fplot(x2_sol, time_range, 'DisplayName', sprintf('R1=%.2f, R2=%.2f, L=%.2f, C=%.2f', R1_val, R2_val, L_val, C_val));
 end
 
-% Plot-Einstellungen
+% Plot
 title('Spannung y(t) über die Zeit für verschiedene Parameterkombinationen (Symbolische Lösung)');
 xlabel('Zeit (s)');
 ylabel('Spannung y(t)');

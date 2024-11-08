@@ -74,6 +74,16 @@ range =
 ```
 ![Polynom](pictures/polynom.png)
 
+
+## Ergebnisse
+
+![Test Polynome](pictures/testpolynoms.png)
+
+Trotz unterschiedlicher Schrittweite kommt es **nicht** zu Skalierungsproblemen des festgelegten Bereichs. :smile: :white_check_mark:
+
+>**INFO:**
+Der Code für den Testaufbau ist im Dokumenten-Anhang.
+
 # Aufgabe 2
 Im ersten Schritt wird das System durch Aufstellen der Differential-Gleichungen für $i(t)$ und $y(t)$ in die Standardform gebracht.
 

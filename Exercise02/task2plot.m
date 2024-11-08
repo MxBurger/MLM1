@@ -40,14 +40,14 @@ for i = 1:size(params, 1)
     % Numerische Lösung mit ode45 (Runge-Kutta)
     [t, x] = ode45(dx_dt, t, x0);
 
-    % Berechnung von y(t) = C * x(t)
+    % Berechnung y(t) = C * x(t)
     x2_t = C_matrix * x';
 
-    % Plot der Spannung y(t) für aktuelle Parameterkombination
+    % Plot y(t) für aktuelle Parameterkombination
     plot(t, x2_t, 'DisplayName', sprintf('R1=%.2f, R2=%.2f, L=%.2f, C=%.2f', R1_val, R2_val, L_val, C_val));
 end
 
-% Plot-Einstellungen
+% Plot
 title('Spannung y(t) über die Zeit für verschiedene Parameterkombinationen (Numerische Lösung)');
 xlabel('Zeit (s)');
 ylabel('Spannung y(t)');
