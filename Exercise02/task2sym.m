@@ -1,5 +1,5 @@
 % Symbole
-syms R1 R2 L C t u
+syms R1 R2 L C t u  x1(t) x2(t)
 
 % Parameterwerte
 R1_val = 0.1;  
