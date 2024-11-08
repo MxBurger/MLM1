@@ -238,3 +238,14 @@ grid on;
 
 >**INFO:**
 Ein grober erster Vergleich zwischen symbolisch und numerisch ermittelter Lösung ist positiv zu bewerten. 
+
+## Ergebnisse:
+
+### Symbolische Lösung
+![Symbolische Lösung mit unterschiedlichen Parametern](pictures/symbolic_plots.png)
+
+### Numerische Lösung
+![Numerische Lösung mit unterschiedlichen Parametern](pictures/numeric_plots.png)
+
+>**INFO:**
+Der Code für den Testaufbau ist im Dokumenten-Anhang.
