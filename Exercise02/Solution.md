@@ -166,7 +166,7 @@ t = 0:0.01:100;
 % Funktion für die Simulation
 dx_dt = @(t, x) A * x + B * u_val;
 
-% Numerische Lösung mit ode45
+% Numerische Lösung mit ode45 (Runge Kutta)
 [t, x] = ode45(dx_dt, t, x0);
 
 % Berechnung von y(t) = C * x(t)
