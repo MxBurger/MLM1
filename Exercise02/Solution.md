@@ -1,4 +1,15 @@
-# Aufgabe 1
+# Aufgabe 1 MATLAB
+
+## Lösungsidee
+Als erstes wird die Funktions-Schnittstelle definiert.
+Sie enthält einen Double-Vektor für die Koeffizienten des Polynoms, einen Double-Vektor für die Bereichs-Intervall-Angabe der grafischen Repräsentation und einen optionalen Parameter für die Angabe der Simulations-Schrittweite. 
+
+Im nächsten Schritt wird ein Vektor für die Werte der unabhängigen Variable $s$ innerhalb des angegebenen Bereiches erstellt. Das Intervall der Werte von $s$ ergibt sich aus der übergebenen Schrittweite.
+
+In einer Schleife wird über die Koeffizienten wird nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und einem Ergebnis-Vektor $p$ hinzugefügt.
+
+Nun verfügt man über einen $s$-Vektor der Werte der unabhängigen Variable innerhalb des definierten Bereiches und einen $p$-Vektor der ermittelten dazugehörigen Polynome. Diese werden im letzten Schritt $s$ gegen die berechneten Werte $p$ gezeichnet.
+
 ```matlab
 function draw_polynomial(coeffs, range, step_size)
 arguments
@@ -19,7 +30,6 @@ p = zeros(size(s));
 legend_text = 'p = ';
 
 for i = 1:n_coeffs
-    
     % Terme des Polynoms aufsummieren
     p = p + coeffs(i) * s.^(n_coeffs - i);
 
@@ -42,6 +52,9 @@ title(['Polynom mit Schrittweite = ', num2str(step_size)]);
 grid minor;
 end
 ```
+>**INFO:** 
+Innerhalb der Schleife zur Polynom-Ermittlung wird auch noch der Legenden-Text für den entsprechenden Term erstellt. Wenn ein Koeffizient negativ ist, wird das vorherige $+$-Zeichen entfernt, um das Format der Legende korrekt anzuzeigen. Am Ende der Schleife wird das letzte +-Zeichen entfernt, da es nach dem letzten Term nicht benötigt wird.
+
 
 ## Aufruf der Funktion
 ```
