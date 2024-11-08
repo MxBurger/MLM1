@@ -75,7 +75,13 @@ range =
 ![Polynom](pictures/polynom.png)
 
 # Aufgabe 2
-### Aufstellen der Standardform
+Im ersten Schritt wird das System durch Aufstellen der Differential-Gleichungen für $i(t)$ und $y(t)$ in die Standardform gebracht.
+
+## Analyse und Aufstellen der Standardform
+$u=R_1*i+L*i\ ' + y$  &nbsp; &nbsp; &nbsp; &nbsp; *wir legen fest* &nbsp; &nbsp; &nbsp; &nbsp; $x_1(t)=i(t)$
+$i=\frac{1}{R_2}*y+C*y\ '$  &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; *wir legen fest* &nbsp; &nbsp; &nbsp; &nbsp; $x_2(t)=y(t)$
+
+
 $x(t)=
 \begin{bmatrix}
 i(t) \\
@@ -86,11 +92,25 @@ x_1(t) \\
 x_2(t)
 \end{bmatrix}$
 
-$x_1\ '=?$
-$x_1\ '= -\frac{R_1}{L} *x_1 - \frac{1}{L} *x_2 + \frac{1}{L} * U$
+##### Ermittlung von $x_1 \ '$ 
 
+$u=R_1*x_1+L*x_1 ' + x_2$
+$x_1\ '=?$
+Umformschritte:
+$L*x_1\ ' = u - R1*x_1-x_2$
+$x_1\ '= -\frac{R_1}{L} *x_1 - \frac{1}{L} *x_2 + \frac{1}{L} * u$
+
+
+##### Ermittlung von $x_2 \ '$
+
+$i=\frac{1}{R_2} * x_2 + C * x_2 \ '$
 $x_2\ '=?$
+Umformschritte:
+$x_1=\frac{1}{R_2} * x_2 + C * x_2 \ '$ 
+$C*x_2 \ ' = x_1 - \frac{1}{R_2}*x_2$
 $x_2\ '= \frac{1}{C} * x_1 - \frac{1}{R_2*C}*x_2$
+
+##### Aufstellen der $A$-Matrix anhand der Koeffizienten von $x_1$ und $x_2$ in den Gleichungen $x_1 \ '$ und $x_2 \ '$
 
 $A=
 \begin{bmatrix}
@@ -99,12 +119,17 @@ $A=
 \end{bmatrix}
 $
 
+##### Aufstellen der $B$-Matrix aufgrund der Koeffizienten von $u$ in den Gleichungen $x_1 \ '$ und $x_2 \ '$
+
 $B=
 \begin{bmatrix}
 \frac{1}{L} \\
 0
 \end{bmatrix}
 $
+
+##### Aufstellen der $C$-Matrix aufgrund $y=x_2$
+($i$ also $x_1$ hat keinen direkten Einfluss auf die Ausgabe)
 
 $C =
 \begin{bmatrix}
@@ -114,9 +139,22 @@ $
 
 ## Symbolische Lösung mit *Symbolic Math Toolbox*
 
+Die vorhin aufgestellten Differentialgleichungen $x_1 \ '$ und $x_2 \ '$ können nun für die Ermittlung der symbolischen Lösung mittels der *Symbolic Math Toolbox* verwendet werden.
+
+Im ersten Schritt werden die durch die vorangegangene Analyse identifizierten und relevanten Symbole und benötigten Gleichungen in Matlab-Code gegossen.
+- Die Symbole $R_1$, $R_2$, $L$, $C$, $u$, die Zeit $t$, $x_1(t)$ und $x_2(t)$   müssen definiert werden.
+- Es werden auch konkrete Werte für $R_1$, $R_2$, $L$, $C$ und $u$ festgelegt. Diese Werte werden später in die symbolischen Lösungen eingesetzt, um eine konkrete numerische Lösung zu erhalten.
+- Übertragen der Differentialgleichungen $x_1 \ '$ und $x_2 \ '$
+
+Als nächstes wird mit `dsolve` die symbolische Lösung ermittelt. Als Anfangsbedingungen (diese müssen ebenfalls übergeben werden) wird davon ausgegangen, dass $x_1(t)$ und $x_2(t)$ initial $0$ sind.
+
+Mit `subs` können nun die symbolischen Lösungen für $x_1(t)$ und $x_2(t)$ mit den konkreten Parameterwerten ausgewertet werden. `subs` retouniert  die symbolische Lösung der Differentialgleichungen für die Zustandsvariablen. 
+
+Zur Ausgabe wird `fplot` verwendet. An diese Funktion wird der vorhin mit `subs` ermittelte symbolische Ausdruck für $x_2(t)$ und ein Vektor zum definieren des Zeitbereichs übergeben. (Im konkreten Fall `[0, 100]`). 
+
 ```matlab
 % Symbole
-syms R1 R2 L C t u
+syms R1 R2 L C t u x1(t) x2(t)
 
 % Parameterwerte
 R1_val = 0.1;  
@@ -146,12 +184,15 @@ title('Spannung y(t) über die Zeit (Symbolische Lösung)');
 xlabel('Zeit (s)');
 ylabel('Spannung y(t)');
 grid on;
-
 ```
+>**INFO:**
+`x1_sol` und `x2_sol` sind keine Vektoren, sondern symbolische Ausdrücke (Funktionen der Zeit $t$). Sie werden erst beim Plotten ausgewertet.
 
 ![Symbolische Lösung 1](pictures/symbolic_plot_1.png)
 
-## Vergleich mit numerischer Lösung mit Runge-Kutta Verfahren *(in Matlab ode45)*
+## **Bonus:** Vergleich mit numerischer Lösung mit Runge-Kutta Verfahren *(ode45)*
+
+Für diese Aufgabe wurde ebenfalls ein Verfahren zur numerischen Lösungsermittlung erstellt. Dies bietet zwar keine weitere Sicherheit, ob das Modell richtig aufgestellt wurde, soll jedoch überprüfen ob die *Symbolic Math Toolbox* richtig verwendet wurde. 
 
 ```matlab
 % Parameterwerte
@@ -194,3 +235,6 @@ grid on;
 ```
 
 ![Numerische Lösung 1](pictures/numeric_plot_1.png)
+
+>**INFO:**
+Ein grober erster Vergleich zwischen symbolisch und numerisch ermittelter Lösung ist positiv zu bewerten. 
