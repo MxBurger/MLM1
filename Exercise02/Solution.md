@@ -1,14 +1,13 @@
 # Aufgabe 1 MATLAB
 
 ## Lösungsidee
-Als erstes wird die Funktions-Schnittstelle definiert.
-Sie enthält einen Double-Vektor für die Koeffizienten des Polynoms, einen Double-Vektor für die Bereichs-Intervall-Angabe der grafischen Repräsentation und einen optionalen Parameter für die Angabe der Simulations-Schrittweite. 
+Die Funktions-Schnittstelle enthält einen Double-Vektor für die Koeffizienten des Polynoms, einen Double-Vektor für die Bereichs-Intervall-Angabe der grafischen Repräsentation und einen optionalen Parameter für die Angabe der Simulations-Schrittweite. 
 
 Im nächsten Schritt wird ein Vektor für die Werte der unabhängigen Variable $s$ innerhalb des angegebenen Bereiches erstellt. Das Intervall der Werte von $s$ ergibt sich aus der übergebenen Schrittweite.
 
 In einer Schleife wird über die Koeffizienten wird nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und einem Ergebnis-Vektor $p$ hinzugefügt.
 
-Nun verfügt man über einen $s$-Vektor der Werte der unabhängigen Variable innerhalb des definierten Bereiches und einen $p$-Vektor der ermittelten dazugehörigen Polynome. Diese werden im letzten Schritt $s$ gegen die berechneten Werte $p$ gezeichnet.
+Nun verfügt man über einen $s$-Vektor der Werte der unabhängigen Variable innerhalb des definierten Bereiches und einen $p$-Vektor der ermittelten dazugehörigen Polynome. Diese Werte ($s$) werden im letzten Schritt gegen die berechneten Werte $p$ gezeichnet.
 
 ```matlab
 function draw_polynomial(coeffs, range, step_size)
@@ -59,33 +58,29 @@ Innerhalb der Schleife zur Polynom-Ermittlung wird auch noch der Legenden-Text f
 ## Aufruf der Funktion
 ```
 >> coeffs = [5 -3 0 1 2 0]
-
 coeffs =
-
      5    -3     0     1     2     0
-
 >> range = [ -10 10]
-
 range =
-
    -10    10
-
 >> draw_polynomial(coeffs, range);
 ```
-![Polynom](pictures/polynom.png)
+
+
+![Polynom](pictures/polynom.png){ width="500" style="display: block; margin: 0 auto" }
 
 
 ## Ergebnisse
 
-![Test Polynome](pictures/testpolynoms.png)
+![Test Polynome](pictures/testpolynoms.png){ width="500" style="display: block; margin: 0 auto" }
 
 Trotz unterschiedlicher Schrittweite kommt es **nicht** zu Skalierungsproblemen des festgelegten Bereichs. :smile: :white_check_mark:
 
 >**INFO:**
 Der Code für den Testaufbau ist im Dokumenten-Anhang.
 
-# Aufgabe 2
-Im ersten Schritt wird das System durch Aufstellen der Differential-Gleichungen für $i(t)$ und $y(t)$ in die Standardform gebracht.
+# Aufgabe 2 Electrical engineering basics: The series resonant circuit
+Im ersten Schritt wird das System durch Aufstellen der Differential-Gleichungen für $i(t)$ und $y(t)$ und Definieren der $A \ B \ C$-Matrizzen in die Standardform gebracht.
 
 ## Analyse und Aufstellen der Standardform
 $u=R_1*i+L*i\ ' + y$  &nbsp; &nbsp; &nbsp; &nbsp; *wir legen fest* &nbsp; &nbsp; &nbsp; &nbsp; $x_1(t)=i(t)$
@@ -147,10 +142,10 @@ $C =
 \end{bmatrix}
 $
 
+<!-- pagebreak -->
+
 ## Symbolische Lösung mit *Symbolic Math Toolbox*
-
 Die vorhin aufgestellten Differentialgleichungen $x_1 \ '$ und $x_2 \ '$ können nun für die Ermittlung der symbolischen Lösung mittels der *Symbolic Math Toolbox* verwendet werden.
-
 Im ersten Schritt werden die durch die vorangegangene Analyse identifizierten und relevanten Symbole und benötigten Gleichungen in Matlab-Code gegossen.
 - Die Symbole $R_1$, $R_2$, $L$, $C$, $u$, die Zeit $t$, $x_1(t)$ und $x_2(t)$   müssen definiert werden.
 - Es werden auch konkrete Werte für $R_1$, $R_2$, $L$, $C$ und $u$ festgelegt. Diese Werte werden später in die symbolischen Lösungen eingesetzt, um eine konkrete numerische Lösung zu erhalten.
@@ -160,7 +155,7 @@ Als nächstes wird mit `dsolve` die symbolische Lösung ermittelt. Als Anfangsbe
 
 Mit `subs` können nun die symbolischen Lösungen für $x_1(t)$ und $x_2(t)$ mit den konkreten Parameterwerten ausgewertet werden. `subs` retouniert  die symbolische Lösung der Differentialgleichungen für die Zustandsvariablen. 
 
-Zur Ausgabe wird `fplot` verwendet. An diese Funktion wird der vorhin mit `subs` ermittelte symbolische Ausdruck für $x_2(t)$ und ein Vektor zum definieren des Zeitbereichs übergeben. (Im konkreten Fall `[0, 100]`). 
+Zur Ausgabe wird `fplot` verwendet. An diese Funktion wird der vorhin mit `subs` ermittelte symbolische Ausdruck für $x_2(t)$ und ein Vektor zum Definieren des Zeitbereichs übergeben. (Im konkreten Fall `[0, 100]`). 
 
 ```matlab
 % Symbole
@@ -196,9 +191,9 @@ ylabel('Spannung y(t)');
 grid on;
 ```
 >**INFO:**
-`x1_sol` und `x2_sol` sind keine Vektoren, sondern symbolische Ausdrücke (Funktionen der Zeit $t$). Sie werden erst beim Plotten ausgewertet.
+`x1_sol` und `x2_sol` sind keine Vektoren, sondern symbolische Ausdrücke (Funktionen der Zeit $t$). Sie werden in diesem Fall erst beim Plotten ausgewertet.
 
-![Symbolische Lösung 1](pictures/symbolic_plot_1.png)
+![Symbolische Lösung 1](pictures/symbolic_plot_1.png){ width="500" style="display: block; margin: 0 auto" }
 
 ## **Bonus:** Vergleich mit numerischer Lösung mit Runge-Kutta Verfahren *(ode45)*
 
@@ -244,7 +239,7 @@ ylabel('Spannung y(t)');
 grid on;
 ```
 
-![Numerische Lösung 1](pictures/numeric_plot_1.png)
+![Numerische Lösung 1](pictures/numeric_plot_1.png){ width="500" style="display: block; margin: 0 auto" }
 
 >**INFO:**
 Ein grober erster Vergleich zwischen symbolisch und numerisch ermittelter Lösung ist positiv zu bewerten. 
@@ -259,3 +254,47 @@ Ein grober erster Vergleich zwischen symbolisch und numerisch ermittelter Lösun
 
 >**INFO:**
 Der Code für den Testaufbau ist im Dokumenten-Anhang.
+
+# Aufgabe 3 Continuous modeling and systems theory
+## Einleitung
+Das (A, B, C)-Modell ist eine gängige Methode zur Beschreibung dynamischer Systeme in der Systemtheorie. Es verwendet Zustandsraumdarstellungen, um lineare Differentialgleichungen zu beschreiben. Dabei werden Matrizen $A$, $B$ und $C$ verwendet, um den Zustand, die Inputs und die Outputs des Systems zu modellieren.
+
+## Bedeutung der Matrizen $A$, $B$ und $C$:
+
+- Matrix $A$ beschreibt, wie sich der Zustand des Systems $x(t)$ über die Zeit verändert. Sie hat die Dimensionen $n*n$, wobei $n$ die Anzahl der Zustände des Systems darstellt.
+- Matrix $B$ beschreibt den Einfluss der Inputs $u(t)$ auf das System. Ihre Dimension ist $n*m$, wobei $m$ die Anzahl der Eingabegrößen ist.
+- Matrix $C$ zeigt, wie die Zustände des Systems auf die Outputs $y(t)$ abgebildet werden. Sie hat die Dimension $p*n$. $p$ ist die Anzahl der Outputs des Systems.
+
+## Vorteile des (A, B, C)-Modells:
+
+- Es ermöglicht eine kompakte und systematische Darstellung dynamischer Systeme.
+- Es kann leicht in Software implementiert werden und ist somit geeignet für Simulationen und Regelungsentwürfe.
+- Das Modell ist nützlich für die Analyse und das Design von Systemen (und Regelungssystemen).
+  
+## Nachteile des (A, B, C)-Modells:
+- Diese Methode ist nur für lineare Systeme anwendbar. Nichtlineare Systeme können damit nicht exakt beschrieben werden.
+- Zeitvariable Systeme (wo  Systemparameter (wie die Matrizen in einer Zustandsraumdarstellung) zeitabhängig sind) können damit nicht exakt beschrieben werden.
+
+## Alternativen, wenn das (A, B, C)-Modell nicht anwendbar ist:
+- Die Erweiterung auf nichtlineare Zustandsraumdarstellungen oder die Verwendung anderer Methoden wie der Lyapunov-Theorie
+- Numerische Simulation
+
+
+## Bedeutung der Formeln:
+### Zustands-Differentialgleichung:
+$x \ '(t) = A * x(t) + B * u(t);$ &nbsp; &nbsp; $x(0)=x_0$
+Diese Gleichung beschreibt die zeitliche Änderung aller internen Zustände des Systems. Der Term $A*x(t)$ modelliert die Dynamik des Systems selbst, basierend auf dem aktuellen Zustand. Der Term $B*u(t)$ beschreibt den Einfluss des Inputs $u(t)$ auf den Zustand. Die Anfangsbedingung $x(0)=x_0$ gibt den Zustand des Systems zum Zeitpunkt $t=0$ an.
+
+### Ausgabe-Gleichung:
+$y(t) = C*x(t)$
+Diese Gleichung stellt den Output des Systems, $y(t)$, in Abhängigkeit vom Zustand $x(t)$ dar. Die Matrix $C$ gibt an, wie die internen Zustände auf die System-Outputs abgebildet werden.
+
+### Lösung der Zustands-Gleichung:
+$x(t) = e^{tA} x(0) + \int_0^t e^{(t - \tau)A} B u(\tau) \, d\tau$
+Diese Gleichung gibt eine Lösung für den Zustand $x(t)$ in Abhängigkeit von der Anfangsbedingung $x(0)$ und dem Eingabesignal $u(t)$. Der erste Term $e^{tA}x(0)$ beschreibt, wie sich der Anfangszustand über die Zeit entwickelt. Der zweite Term (das Integral) repräsentiert die kumulative Wirkung der Eingabe $u(t)$ auf das System über die Zeit.
+
+### Lösung der Ausgabe-Gleichung
+$y(t) = C e^{tA} x(0) + \int_0^t C e^{(t - \tau)A} B u(\tau) \, d\tau$
+Diese Gleichung beschreibt die Ausgabe $y(t)$ des Systems als Funktion der Anfangszustände und des Eingabesignals $u(t)$. Der erste Term $Ce^{tA}x(0)$ zeigt, wie die Anfangsbedingungen zum Output beitragen, und der zweite Term, das Integral, beschreibt die Auswirkung des Inputs $u(t)$ auf die Outputs über die Zeit.
+
+$\tau$ wird in den beiden Gleichungslösungen als Variable verwendet, die von $0$ bist zum aktuellen Zeitpunkt $t$ läuft. Sie sorgt beim Integrieren dafür, dass die Wirkung von $u(\tau)$ über die Zeit im aktuellen Zustand $x(t)$ berücksichtigt wird.
