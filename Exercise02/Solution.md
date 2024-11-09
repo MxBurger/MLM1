@@ -5,9 +5,18 @@ Die Funktions-Schnittstelle enthält einen Double-Vektor für die Koeffizienten 
 
 Im nächsten Schritt wird ein Vektor für die Werte der unabhängigen Variable $s$ innerhalb des angegebenen Bereiches erstellt. Das Intervall der Werte von $s$ ergibt sich aus der übergebenen Schrittweite.
 
-In einer Schleife wird über die Koeffizienten nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und einem Ergebnis-Vektor $p$ hinzugefügt.
+In einer Schleife wird über die Koeffizienten nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und an der korrespondierenden Stelle im Ergebnis-Vektor $p$ gesetzt. Wichtig, der Ergebnis-Vektor $p$ muss vorab als Nullvektor mit der selben Länge wie $s$ initialisiert werden, da die Element-zu-Element Operationen (wie hier die Term-Addition) nur bei Vektoren gleicher Größe möglich sind.
 
-Nun verfügt man über einen $s$-Vektor der Werte der unabhängigen Variable innerhalb des definierten Bereiches und einen $p$-Vektor der ermittelten dazugehörigen Polynome. Diese Werte ($s$) werden im letzten Schritt gegen die berechneten Werte $p$ gezeichnet.
+$p = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} +
+\begin{bmatrix} c_1 \cdot s_1^{n-1} \\ c_1 \cdot s_2^{n-1} \\ c_1 \cdot s_3^{n-1} \end{bmatrix} +
+\begin{bmatrix} c_2 \cdot s_1^{n-2} \\ c_2 \cdot s_2^{n-2} \\ c_2 \cdot s_3^{n-2} \end{bmatrix} +
+\dots +
+\begin{bmatrix}c_n \cdot s_1^0 \\ c_n \cdot s_2^0 \\ c_n \cdot s_3^0 \end{bmatrix}
+$
+
+
+
+Nun verfügt man über einen $s$-Vektor der Werte der unabhängigen Variable innerhalb des definierten Bereiches und einen $p$-Vektor der ermittelten dazugehörigen Polynome. Die Werte von $s$ werden im letzten Schritt gegen die berechneten Werte $p$ gezeichnet.
 
 ```matlab
 function draw_polynomial(coeffs, range, step_size)
