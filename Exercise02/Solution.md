@@ -5,7 +5,7 @@ Die Funktions-Schnittstelle enthält einen Double-Vektor für die Koeffizienten 
 
 Im nächsten Schritt wird ein Vektor für die Werte der unabhängigen Variable $s$ innerhalb des angegebenen Bereiches erstellt. Das Intervall der Werte von $s$ ergibt sich aus der übergebenen Schrittweite.
 
-In einer Schleife wird über die Koeffizienten wird nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und einem Ergebnis-Vektor $p$ hinzugefügt.
+In einer Schleife wird über die Koeffizienten nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und einem Ergebnis-Vektor $p$ hinzugefügt.
 
 Nun verfügt man über einen $s$-Vektor der Werte der unabhängigen Variable innerhalb des definierten Bereiches und einen $p$-Vektor der ermittelten dazugehörigen Polynome. Diese Werte ($s$) werden im letzten Schritt gegen die berechneten Werte $p$ gezeichnet.
 
@@ -52,7 +52,7 @@ grid minor;
 end
 ```
 >**INFO:** 
-Innerhalb der Schleife zur Polynom-Ermittlung wird auch noch der Legenden-Text für den entsprechenden Term erstellt. Wenn ein Koeffizient negativ ist, wird das vorherige $+$-Zeichen entfernt, um das Format der Legende korrekt anzuzeigen. Am Ende der Schleife wird das letzte +-Zeichen entfernt, da es nach dem letzten Term nicht benötigt wird.
+Innerhalb der Schleife zur Polynom-Ermittlung wird auch noch der Legenden-Text für den entsprechenden Term erstellt. Wenn ein Koeffizient negativ ist, wird das vorherige $+$-Zeichen entfernt, um das Format der Legende korrekt anzuzeigen. Am Ende der Schleife wird das letzte +Zeichen entfernt, da es nach dem letzten Term nicht benötigt wird.
 
 
 ## Aufruf der Funktion
@@ -67,17 +67,19 @@ range =
 ```
 
 
-![Polynom](pictures/polynom.png){ width="500" style="display: block; margin: 0 auto" }
+![Polynom](pictures/polynom.png){ width="550" style="display: block; margin: 0 auto" }
 
 
 ## Ergebnisse
 
-![Test Polynome](pictures/testpolynoms.png){ width="500" style="display: block; margin: 0 auto" }
+![Test Polynome](pictures/testpolynoms.png){ width="550" style="display: block; margin: 0 auto" }
 
 Trotz unterschiedlicher Schrittweite kommt es **nicht** zu Skalierungsproblemen des festgelegten Bereichs. :smile: :white_check_mark:
 
 >**INFO:**
 Der Code für den Testaufbau ist im Dokumenten-Anhang.
+
+<!-- pagebreak -->
 
 # Aufgabe 2 Electrical engineering basics: The series resonant circuit
 Im ersten Schritt wird das System durch Aufstellen der Differential-Gleichungen für $i(t)$ und $y(t)$ und Definieren der $A \ B \ C$-Matrizzen in die Standardform gebracht.
@@ -148,7 +150,7 @@ $
 Die vorhin aufgestellten Differentialgleichungen $x_1 \ '$ und $x_2 \ '$ können nun für die Ermittlung der symbolischen Lösung mittels der *Symbolic Math Toolbox* verwendet werden.
 Im ersten Schritt werden die durch die vorangegangene Analyse identifizierten und relevanten Symbole und benötigten Gleichungen in Matlab-Code gegossen.
 - Die Symbole $R_1$, $R_2$, $L$, $C$, $u$, die Zeit $t$, $x_1(t)$ und $x_2(t)$   müssen definiert werden.
-- Es werden auch konkrete Werte für $R_1$, $R_2$, $L$, $C$ und $u$ festgelegt. Diese Werte werden später in die symbolischen Lösungen eingesetzt, um eine konkrete numerische Lösung zu erhalten.
+- Es werden auch konkrete Werte für $R_1$, $R_2$, $L$, $C$ und $u$ festgelegt. Diese Werte werden später in die symbolischen Lösungen eingesetzt.
 - Übertragen der Differentialgleichungen $x_1 \ '$ und $x_2 \ '$
 
 Als nächstes wird mit `dsolve` die symbolische Lösung ermittelt. Als Anfangsbedingungen (diese müssen ebenfalls übergeben werden) wird davon ausgegangen, dass $x_1(t)$ und $x_2(t)$ initial $0$ sind.
@@ -298,3 +300,172 @@ $y(t) = C e^{tA} x(0) + \int_0^t C e^{(t - \tau)A} B u(\tau) \, d\tau$
 Diese Gleichung beschreibt die Ausgabe $y(t)$ des Systems als Funktion der Anfangszustände und des Eingabesignals $u(t)$. Der erste Term $Ce^{tA}x(0)$ zeigt, wie die Anfangsbedingungen zum Output beitragen, und der zweite Term, das Integral, beschreibt die Auswirkung des Inputs $u(t)$ auf die Outputs über die Zeit.
 
 $\tau$ wird in den beiden Gleichungslösungen als Variable verwendet, die von $0$ bist zum aktuellen Zeitpunkt $t$ läuft. Sie sorgt beim Integrieren dafür, dass die Wirkung von $u(\tau)$ über die Zeit im aktuellen Zustand $x(t)$ berücksichtigt wird.
+
+<!-- pagebreak -->
+
+# Anhang:
+
+## Testcode Aufgabe 1
+
+```matlab
+figure;
+hold on;
+legend_entries = {}; % Zelle für die Legendentexte
+
+% Testfall 1
+coeffs1 = [1, -3, 2];
+range1 = [-10, 10];
+step_size1 = 0.01;
+draw_polynomial(coeffs1, range1, step_size1);
+legend_entries{end+1} = sprintf('Testfall 1: s^2 - 3s + 2, Range = [%d, %d], Schrittweite = %.3f', range1(1), range1(2), step_size1);
+
+% Testfall 2
+coeffs2 = [1, 0, -2, 1];
+range2 = [-5, 5];
+step_size2 = 0.1;
+draw_polynomial(coeffs2, range2, step_size2);
+legend_entries{end+1} = sprintf('Testfall 2: s^3 - 2s + 1, Range = [%d, %d], Schrittweite = %.2f', range2(1), range2(2), step_size2);
+
+% Testfall 3
+coeffs3 = [5];
+range3 = [-1, 1];
+step_size3 = 0.01; % Standard-Schrittweite verwenden
+draw_polynomial(coeffs3, range3);
+legend_entries{end+1} = sprintf('Testfall 3: 5, Range = [%d, %d], Schrittweite = %.2f', range3(1), range3(2), step_size3);
+
+% Testfall 4
+coeffs4 = [2, -1, 3, 0, -5];
+range4 = [-3, 3];
+step_size4 = 0.05;
+draw_polynomial(coeffs4, range4, step_size4);
+legend_entries{end+1} = sprintf('Testfall 4: 2s^4 - s^3 + 3s^2 - 5, Range = [%d, %d], Schrittweite = %.2f', range4(1), range4(2), step_size4);
+
+% Testfall 5
+coeffs5 = [1, -1];
+range5 = [0, 2];
+step_size5 = 0.001;
+draw_polynomial(coeffs5, range5, step_size5);
+legend_entries{end+1} = sprintf('Testfall 5: s - 1, Range = [%d, %d], Schrittweite = %.3f', range5(1), range5(2), step_size5);
+
+legend(legend_entries);
+title('Verschiedene Test-Polynome')
+
+hold off;
+disp('Testskript abgeschlossen.');
+```
+
+## Testcode Aufgabe 2
+### Testcode Symbolische Lösung
+```matlab
+% Symbole
+syms R1 R2 L C t u x1(t) x2(t)
+
+% Parameterkombinationen
+params = [
+    2.0, 0.5, 1.0, 1.0;   
+    0.5, 20.0, 1.0, 1.0;  
+    5.0, 25.0, 1.0, 1.0;
+    0.1, 10.0, 0.1, 0.1;  
+    0.1, 10.0, 10.0, 10.0; 
+    3.0, 6.0, 1.0, 1.0
+];
+
+% Anfangsbedingungen
+x1_0 = 0;
+x2_0 = 0;
+u_val = 1;
+
+% Differentialgleichungen definieren
+Dx1 = diff(x1, t) == -R1/L * x1 - 1/L * x2 + u/L;
+Dx2 = diff(x2, t) == 1/C * x1 - 1/(R2 * C) * x2;
+
+sol = dsolve([Dx1, Dx2], x1(0) == x1_0, x2(0) == x2_0);
+
+time_range = [0, 100];
+
+% Plot für jede Parameterkombination
+figure;
+hold on;
+for i = 1:size(params, 1)
+    % Aktuelle Parameterwerte
+    R1_val = params(i, 1);
+    R2_val = params(i, 2);
+    L_val = params(i, 3);
+    C_val = params(i, 4);
+    
+    % Lösungen x2(t) berechnen und substituieren
+    x2_sol = subs(sol.x2, [R1, R2, L, C, u], [R1_val, R2_val, L_val, C_val, u_val]);
+    
+    % Plot x2(t) mit den aktuellen Parameterwerten
+    fplot(x2_sol, time_range, 'DisplayName', sprintf('R1=%.2f, R2=%.2f, L=%.2f, C=%.2f', R1_val, R2_val, L_val, C_val));
+end
+
+% Plot
+title('Spannung y(t) über die Zeit für verschiedene Parameterkombinationen (Symbolische Lösung)');
+xlabel('Zeit (s)');
+ylabel('Spannung y(t)');
+legend show;
+grid on;
+hold off;
+```
+
+### Testcode Numerische Lösung
+```matlab
+% Parameterkombinationen
+params = [
+    2.0, 0.5, 1.0, 1.0;   
+    0.5, 20.0, 1.0, 1.0;  
+    5.0, 25.0, 1.0, 1.0;
+    0.1, 10.0, 0.1, 0.1;  
+    0.1, 10.0, 10.0, 10.0; 
+    3.0, 6.0, 1.0, 1.0
+];
+
+% Anfangswerte
+x0 = [0; 0];  % x1(0) = 0 und x2(0) = 0
+
+% Zeitvektor
+t = 0:0.01:100;
+
+% Plot für jede Parameterkombination
+figure;
+hold on;
+for i = 1:size(params, 1)
+    % Aktuelle Parameterwerte
+    R1_val = params(i, 1);
+    R2_val = params(i, 2);
+    L_val = params(i, 3);
+    C_val = params(i, 4);
+    u_val = 1;
+
+    % Matrix A, B und C_matrix in Standardform
+    A = [ -R1_val / L_val, -1 / L_val;
+           1 / C_val,     -1 / (R2_val * C_val) ];
+
+    B = [1 / L_val;
+         0];
+
+    C_matrix = [0, 1];
+
+    % Funktion für die Simulation
+    dx_dt = @(t, x) A * x + B * u_val;
+
+    % Numerische Lösung mit ode45 (Runge-Kutta)
+    [t, x] = ode45(dx_dt, t, x0);
+
+    % Berechnung y(t) = C * x(t)
+    x2_t = C_matrix * x';
+
+    % Plot y(t) für aktuelle Parameterkombination
+    plot(t, x2_t, 'DisplayName', sprintf('R1=%.2f, R2=%.2f, L=%.2f, C=%.2f', R1_val, R2_val, L_val, C_val));
+end
+
+% Plot
+title('Spannung y(t) über die Zeit für verschiedene Parameterkombinationen (Numerische Lösung)');
+xlabel('Zeit (s)');
+ylabel('Spannung y(t)');
+legend show;
+grid on;
+hold off;
+
+```
