@@ -7,11 +7,11 @@ Im nächsten Schritt wird ein Vektor für die Werte der unabhängigen Variable $
 
 In einer Schleife wird über die Koeffizienten nun das Polynom für jedes Element des vorhin erstellten $s$-Vektors durch aufsummieren der ermittelten Terme berechnet und an der korrespondierenden Stelle im Ergebnis-Vektor $p$ gesetzt. Wichtig, der Ergebnis-Vektor $p$ muss vorab als Nullvektor mit der selben Länge wie $s$ initialisiert werden, da die Element-zu-Element Operationen (wie hier die Term-Addition) nur bei Vektoren gleicher Größe möglich sind.
 
-$p = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix} +
-\begin{bmatrix} c_1 \cdot s_1^{n-1} \\ c_1 \cdot s_2^{n-1} \\ c_1 \cdot s_3^{n-1} \end{bmatrix} +
-\begin{bmatrix} c_2 \cdot s_1^{n-2} \\ c_2 \cdot s_2^{n-2} \\ c_2 \cdot s_3^{n-2} \end{bmatrix} +
+$p = \begin{bmatrix} 0 \\ 0 \\ \dots \end{bmatrix} +
+\begin{bmatrix} c_1 \cdot s_1^{n-1} \\ c_1 \cdot s_2^{n-1}  \\ \dots \end{bmatrix} +
+\begin{bmatrix} c_2 \cdot s_1^{n-2} \\ c_2 \cdot s_2^{n-2}  \\ \dots \end{bmatrix} +
 \dots +
-\begin{bmatrix}c_n \cdot s_1^0 \\ c_n \cdot s_2^0 \\ c_n \cdot s_3^0 \end{bmatrix}
+\begin{bmatrix}c_n \cdot s_1^0 \\ c_n \cdot s_2^0 \\  \dots \end{bmatrix}
 $
 
 
