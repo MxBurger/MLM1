@@ -1,7 +1,7 @@
 # Aufgabe 1
 ## a)
 ### I)
-![alt text](images/1a1.png)
+![alt text](images/1a1.png){ width="400" style="display: block; margin: 0 auto" }
 
 $x(t)=
 \begin{bmatrix}
@@ -61,11 +61,14 @@ $C=
 \end{bmatrix}
 $
 
----
+<!-- pagebreak -->
+
+
 
 ### II)
 
-![alt text](images/1a2.png)
+![alt text](images/1a2.png){ width="400" style="display: block; margin: 0 auto" }
+
 
 $x(t)=
 \begin{bmatrix}
@@ -117,7 +120,8 @@ $C=
 \end{bmatrix}
 $
 
----
+<!-- pagebreak -->
+
 
 ## b)
 
@@ -150,6 +154,8 @@ $y_4= 3 \cdot x_2$
 
 ![alt text](images/1b1.png)
 
+<!-- pagebreak -->
+
 ### II)
 
 $
@@ -180,6 +186,11 @@ $y = x_2$
 - In der $B$-Matrix kann die Anzahl der Zeilen nicht stimmen, $B$ muss soviele Zeilen haben, wie es Zustandsvariablen gibt. :x:
 - In der $C$-Matrix muss für jede Zustandsvariable eine Spalte existieren. :x:
 - Es ist ein lineares System :white_check_mark: (zumindest in den Zeilen und Spalten die ersichtlich sind)
+
+
+<!-- pagebreak -->
+
+
 
 ## d)
 
@@ -246,4 +257,7 @@ $C=
 1 \quad 0  \quad -1
 \end{bmatrix}
 $
-![alt text](images/1d.png)
+![alt text](images/1d.png){ width="400" style="display: block; margin: 0 auto" }
+
+<!-- pagebreak -->
+
