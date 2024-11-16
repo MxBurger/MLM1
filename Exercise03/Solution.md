@@ -1,6 +1,8 @@
 # Aufgabe 1
 ## a)
 ### I)
+![alt text](images/1a1.png)
+
 $x(t)=
 \begin{bmatrix}
 z(t) \\
@@ -62,6 +64,9 @@ $
 ---
 
 ### II)
+
+![alt text](images/1a2.png)
+
 $x(t)=
 \begin{bmatrix}
 z(t) \\
@@ -143,6 +148,8 @@ $y_2 = 2 \cdot x_2$
 $y_3 = -x_2 + x_3$
 $y_4= 3 \cdot x_2$
 
+![alt text](images/1b1.png)
+
 ### II)
 
 $
@@ -162,7 +169,10 @@ $
 
 $x_1 \ ' = -x_1 + x_2 + 2 \cdot U_2$
 $x_2 \ ' = x_1 + U_1 - 2 \cdot U_2$
+
 $y = x_2$
+
+![alt text](images/1b2.png)
 
 
 ## c)
@@ -211,7 +221,7 @@ Zeilen sind Differentialgleichungen der Zustandsvariablen und Spalten die Koeffi
 
 $A=
 \begin{bmatrix}
-2 \quad  4 \quad   -2 \\
+2 \quad 4 \quad -2 \\
 0 \quad 4 \quad -1 \\
 0 \quad 0 \quad -1
 \end{bmatrix}
@@ -231,8 +241,9 @@ Zeilen sind die Outputs, KoeffizientenSpalten sind die Zustandsvariablen die sic
 
 $C=
 \begin{bmatrix}
-3 \quad 0 \quad 0 \\ 
-0 \quad -1 \quad 0\\
-1 \quad 0 \quad -1
+3 \quad 0  \quad 0 \\ 
+0 \quad -1 \quad 0 \\
+1 \quad 0  \quad -1
 \end{bmatrix}
 $
+![alt text](images/1d.png)
