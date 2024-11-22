@@ -1,7 +1,7 @@
 # Aufgabe 1
 ## a)
 ### I)
-![alt text](images/1a1.png)
+![alt text](images/1a1.png){ width="400" style="display: block; margin: 0 auto" }
 
 $x(t)=
 \begin{bmatrix}
@@ -61,11 +61,14 @@ $C=
 \end{bmatrix}
 $
 
----
+<!-- pagebreak -->
+
+
 
 ### II)
 
-![alt text](images/1a2.png)
+![alt text](images/1a2.png){ width="400" style="display: block; margin: 0 auto" }
+
 
 $x(t)=
 \begin{bmatrix}
@@ -117,7 +120,8 @@ $C=
 \end{bmatrix}
 $
 
----
+<!-- pagebreak -->
+
 
 ## b)
 
@@ -150,6 +154,8 @@ $y_4= 3 \cdot x_2$
 
 ![alt text](images/1b1.png)
 
+<!-- pagebreak -->
+
 ### II)
 
 $
@@ -179,7 +185,11 @@ $y = x_2$
 - $A$ ist eine Quadrat-Matrix :white_check_mark:
 - In der $B$-Matrix kann die Anzahl der Zeilen nicht stimmen, $B$ muss soviele Zeilen haben, wie es Zustandsvariablen gibt. :x:
 - In der $C$-Matrix muss für jede Zustandsvariable eine Spalte existieren. :x:
-- Es ist ein lineares System :white_check_mark: (zumindest in den Zeilen und Spalten die ersichtlich sind)
+
+
+<!-- pagebreak -->
+
+
 
 ## d)
 
@@ -246,4 +256,48 @@ $C=
 1 \quad 0  \quad -1
 \end{bmatrix}
 $
-![alt text](images/1d.png)
+![alt text](images/1d.png){ width="400" style="display: block; margin: 0 auto" }
+
+<!-- pagebreak -->
+
+# Aufgabe 2
+Numerische Integration ist eine Methode, eine Differentialgleichung durch Näherungswerte zu lösen, wenn eine analytische Lösung nicht möglich oder nicht leicht anwendbar ist. In der Simulation von Systemen wird numerische Integration eingesetzt, um zeitliche Verläufe von Zustandsgrößen zu berechnen.
+
+Für das Starten einer Simulation sind neben der Auswahl der numerischen Integrationsmethode folgende Informationen  notwendig:
+
+- **Anfangszustände:** Die Startwerte aller relevanten Zustandsgrößen dienen als Grundlage für die Berechnung der nächsten Schritte.
+- **Differentialgleichungen des Systems:** Diese beschreiben, wie sich das System über die Zeit ändert, also die Dynamik des Systems.
+- **Schrittweite der Simulation:** Der zeitliche Abstand für die Berechnung der nächsten Zustandswerte. Die Genauigkeit der Simulation hängt maßgeblich von der Größe der Schrittweite ab. Es gibt auch Simulationsverfahren mit variabler Schrittweite.   
+
+Es gibt Alternativen zur numerischen Integration, die sind aber oft nicht anwendbar.
+- **Analytische Lösungen:**
+Die Gleichung wird mithilfe mathematischer Regeln und Operationen so umgeformt, dass die Lösung in expliziter Form dargestellt werden kann. Das heißt, das Ergebnis ist eine Formel, die alle Lösungen direkt ausdrückt, ohne dass Näherungsverfahren oder numerische Methoden nötig sind.
+  - nicht anwendbar bei nichtlinearen Systemen, da keine einfachen Lösungsmethoden vorhanden
+
+Folgende numerische Integrationsmethoden sind mir u.A. bekannt:
+- Euler-Verfahren
+- Heun-Verfahren
+- Runge-Kutta-Verfahren
+- Adams-Bashford-Verfahren
+- Adams-Moulton-Verfarhen
+
+**Euler-Verfahren:**
+Einfachstes Verfahren, bei dem der nächste Wert aus der aktuellen Ableitung berechnet wird:
+$q_{i+1}=q_i + h \cdot f(q_i)$
+- Vorteil: Einfach zu implementieren.
+- Nachteil: Kann ungenau und instabil sein.
+
+Die Schrittweite $h$ gibt an, wie groß der zeitliche Abstand zwischen zwei aufeinanderfolgenden Berechnungspunkten $q_i$ und $q_{i+1}$ in der numerischen Integration ist.
+
+![alt text](images/euler.png){ width="150" style="display: block; margin: 0 auto" }
+
+<!-- pagebreak -->
+
+**Heun-Verfahren:**
+Ein verbesserter Ansatz, der den Durchschnitt der Ableitungen am Anfang und Ende der Schrittweite verwendet:
+$q_{i+1}=q_i+\frac{h}{2}\cdot(f(q_i)+f(q_i+h\cdot f(q_i)))$
+- Vorteil: Höhere Genauigkeit als das Euler-Verfahren.
+- Nachteil: Etwas aufwändiger.
+
+![alt text](images/heun.png){ width="150" style="display: block; margin: 0 auto" }
+
