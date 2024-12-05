@@ -5,5 +5,7 @@ function [s] = mutate(s, delta)
     s.t4 = s.t4 + randn * delta;
 
     s.quality = [];
-    % also the other params are uknown
+    s.h_prog = [];
+    s.v_prog = [];
+    s.t_prog = [];
 end

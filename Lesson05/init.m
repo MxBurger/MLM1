@@ -1,11 +1,21 @@
-function [s] = init(maxValue,inputArg2)
-    s.t1 = rand * maxValue;
-    s.t2 = rand * maxValue;
-    s.t3 = rand * maxValue;
-    s.t4 = rand * maxValue;
+function [s] = init(max_time)
+    s.t1 = rand * max_time;
+    s.t2 = rand * max_time;
+    s.t3 = rand * max_time;
+    s.t4 = rand * max_time;
 
-    %if t1 > t2 -> swap
-    %if t3 > t4 -> swap
+    % swap if thrust-times are reversed
+    if s.t1 > s.t2
+        x = s.t1;
+        s.t1 = s.t2;
+        s.t2 = x;
+    end
+
+    if s.t3 > s.t4
+        x = s.t3;
+        s.t4 = s.t3;
+        s.t3 = x;
+    end
 
     s.quality = [];
     s.h_progress = [];
