@@ -10,12 +10,12 @@ function [s] = evaluate(model_name, s, maxTime)
     s.t_prog = T;
 
     if(min(s.h_prog) < 0)
-        % houston, we have a landing
+        % Houston, we have a landing
         index = find(s.h_prog < 0);
         impact = index(1);
         s.quality = -s.v_prog(impact);
     else
-        % we did not land, bye major tom
-        s.quality = min(s.h_prog) * 0.5; % maybe define quality of no landing in another way
+        % We did not land, bye major tom
+        s.quality = min(s.h_prog) * 1.5; % Maybe define quality of no landing in another way
     end
 end

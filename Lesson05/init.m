@@ -4,7 +4,7 @@ function [s] = init(max_time)
     s.t3 = rand * max_time;
     s.t4 = rand * max_time;
 
-    % swap if thrust-times are reversed
+    % Swap if thrust-times are reversed
     if s.t1 > s.t2
         x = s.t1;
         s.t1 = s.t2;
