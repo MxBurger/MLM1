@@ -1,15 +1,16 @@
-B = 0.2;
-R = 0.2;
+B = 400;
+R = 80;
 
 tMax = 200;
-tStepSize = 0.00001;
+tStepSize = 0.001;
 
-a1 = 1;
-a2 = 1;
-a3 = 1.5;
-a4 = 0.2;
-a5 = 0.4;
-a6 = 1;
+alpha = 0.1;
+beta = 0.002;
+gamma = 0.05;
+delta = 0.001;
+
+e1 = 0.01;
+e2 = 0.02;
 
 bProgress = zeros(tMax/tStepSize + 1, 1);
 rProgress = zeros(tMax/tStepSize + 1, 1);
@@ -19,8 +20,8 @@ i = 1;
 
 for t=0:tStepSize:tMax
     % derivatives
-    b_ = B * (a1 * (1 - B / a2) - a3 *R / (B + a4));
-    r_ = R * a5 * (1 - a6 *(R/B));
+    b_ = alpha*B - beta*B*R - e1*B;
+    r_ = -gamma*R + delta*B*R - e2*R;
 
     B = B + b_ * tStepSize;
     R = R + r_ * tStepSize;

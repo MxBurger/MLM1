@@ -39,7 +39,7 @@ function [s] = optimize(model_name, mue, lambda, max_time, delta, n_gens)
         end
 
         % Update delta using 1/5 success rule every n generations
-        if mod(current_gen_index, n) == 0
+        if mod(current_gen_index + 1, n) == 0
             success_rate = mean(success_history);
             if success_rate < 0.2       % Less than 1/5 successful
                 current_delta = ci * current_delta;  % Increase delta

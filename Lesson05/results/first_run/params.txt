@@ -1,0 +1,6 @@
+model_name = 'LunarLander_param';
+mue = 20;
+lambda = 40;
+max_time = 100;
+delta = 1;
+n_gens = 36;
