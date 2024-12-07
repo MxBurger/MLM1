@@ -134,6 +134,7 @@ Die Implementierung unterliegt folgenden Grundzügen:
 - Qualitätsbewertung basierend auf der Aufprallgeschwindigkeit
 - Auch Landeversuche wo kein Tochdown erzielt wird, werden bewertet
 (herangezogen wird hierfür die minimale Höhe des Versuches)
+- Weitere "Straf"-Terme für z.Bsp. gefährliche Brems-Manöver, hohe G-Kräfte oder späte Landung wurden nicht eingeführt
 
 ##### Implementierung
 
@@ -673,3 +674,226 @@ optimize('LunarLander_param', 20, 40, 100, 1, 64, 'comma')
 |32 |64    |10   |16            |2.63883757161066  |
 |32 |64    |10   |64            |4.23872831052704  |
 |32 |64    |10   |128           |1.39211075003698  |
+
+##### Zusatz: Optimierung mit Abbruch bei erreichter Qualität
+
+Um zeiteffizient brauchbare Lösungen zu erhalten, erweitern wir die Funktions-Schnittstelle um eine akzeptable Qualität definieren, bei deren Erreichung wir die Simulation abbrechen.
+
+```matlab
+function [s] = optimize_limit(model_name, mue, lambda, max_time, delta, n_gens, selection_type, acceptable_quality)
+    % Initialize population
+    population = cell(1, mue);
+    for i = 1 : mue
+        s = init(max_time);
+        s = evaluate(model_name, s, max_time);
+        population{i} = s;
+    end
+    
+    % Parameters for 1/5 success rule
+    n = 4; % Number of parameters (t1-t4)
+    success_history = zeros(1, 10*n);
+    history_index = 1;
+    cd = 0.82;
+    ci = 1/0.82;
+    current_delta = delta;
+    
+    current_gen_index = 0;
+    target_reached = false;
+    
+    while (current_gen_index < n_gens && ~target_reached)
+        fprintf("Generation: %d\n", current_gen_index);
+        offspring = cell(1, lambda);
+        successes = 0;
+        
+        % Create offspring
+        for i = 1 : lambda
+            index = ceil(rand * mue);
+            parent = population{index};
+            child = mutate(parent, current_delta, max_time);
+            child = evaluate(model_name, child, max_time);
+            offspring{i} = child;
+            
+            if selection_type == "plus"
+                % For (μ+λ): smaller values are better
+                if child.quality < parent.quality
+                    success_history(history_index) = 1;
+                    successes = successes + 1;
+                else
+                    success_history(history_index) = 0;
+                end
+            else
+                % For (μ,λ): larger values are better
+                if child.quality > parent.quality
+                    success_history(history_index) = 1;
+                    successes = successes + 1;
+                else
+                    success_history(history_index) = 0;
+                end
+            end
+            history_index = mod(history_index, 10*n) + 1;
+        end
+        
+        % Update delta using 1/5 success rule
+        if mod(current_gen_index + 1, n) == 0
+            success_rate = mean(success_history);
+            if success_rate < 0.2
+                current_delta = ci * current_delta;
+            elseif success_rate > 0.2
+                current_delta = cd * current_delta;
+            end
+            fprintf("Success rate: %.2f, New delta: %.4f\n", success_rate, current_delta);
+        end
+        
+        if selection_type == "plus"
+            % (μ+λ) selection: combine parents and offspring
+            combined_population = [population, offspring];
+            combined_quality = zeros(1, mue + lambda);
+            
+            % Evaluate combined population
+            for i = 1:(mue + lambda)
+                combined_quality(i) = combined_population{i}.quality;
+            end
+            
+            % Sort ascending (smaller values are better)
+            [~, indices] = sort(combined_quality, 'ascend');
+            new_population = cell(1, mue);
+            for i = 1:mue
+                new_population{i} = combined_population{indices(i)};
+            end
+            
+            % Check if acceptable quality is reached
+            if new_population{1}.quality <= acceptable_quality
+                target_reached = true;
+                fprintf('Target quality %.4f reached in generation %d\n', ...
+                    acceptable_quality, current_gen_index);
+            end
+        else
+            % (μ,λ) selection: select only from offspring
+            offspring_quality = zeros(1, lambda);
+            for i = 1:lambda
+                offspring_quality(i) = offspring{i}.quality;
+            end
+            [~, indices] = sort(offspring_quality, 'ascend');
+            new_population = cell(1, mue);
+            for i = 1:mue
+                new_population{i} = offspring{indices(i)};
+            end
+            
+            % Check if acceptable quality is reached
+            if new_population{1}.quality <= acceptable_quality
+                target_reached = true;
+                fprintf('Target quality %.4f reached in generation %d\n', ...
+                    acceptable_quality, current_gen_index);
+            end
+        end
+        
+        population = new_population;
+        current_gen_index = current_gen_index + 1;
+        
+        if selection_type == "plus"
+            fprintf('Best solution in generation %d: %.4f m/s\n', ...
+                    current_gen_index, population{1}.quality);
+        else
+            fprintf('Best solution in generation %d: %.4f\n', ...
+                    current_gen_index, population{1}.quality);
+        end
+    end
+    
+    % Final results
+    figure;
+    hold on
+    grid on
+    best_solution = population{1};
+    param_text = sprintf('Height and Velocity\nt1=%.2f, t2=%.2f, t3=%.2f, t4=%.2f\nImpact Velocity=%.2f m/s', ...
+        best_solution.t1, best_solution.t2, best_solution.t3, best_solution.t4, best_solution.quality);
+    title(param_text);
+    
+    plot(best_solution.t_prog, best_solution.h_prog);
+    plot(best_solution.t_prog, best_solution.v_prog);
+    xlabel("Time [sec]");
+    ylabel("H [m], V [m/s]");
+    legend("Height", "Velocity");
+    hold off
+    s = best_solution;
+end
+```
+
+Wenn wir eine Touch-Down Geschwindigkeit mit 2m/s akzeptieren, können wir die Funktion folgend aufrufen:
+```bash
+optimize_limit('LunarLander_param', 20, 40, 100, 1, 64, 'plus', 2.0)
+```
+
+![alt text](2b_addon.jpg)
+
+Bereits nach 3 Generationen wurde die gewünschte Mindest-Qualität erreicht.
+```
+>> optimize_limit('LunarLander_param', 20, 40, 100, 1, 64, 'plus', 2.0)
+Generation: 0
+Best solution in generation 1: 7.5995 m/s
+Generation: 1
+Best solution in generation 2: 7.5995 m/s
+Generation: 2
+Best solution in generation 3: 7.5995 m/s
+Generation: 3
+Success rate: 0.40, New delta: 0.8200
+Target quality 2.0000 reached in generation 3
+Best solution in generation 4: 0.4104 m/s
+
+ans = 
+
+  struct with fields:
+
+         t1: 11.3720
+         t2: 100
+         t3: 48.4474
+         t4: 51.3763
+    quality: 0.4104
+     h_prog: [10001×1 double]
+     v_prog: [10001×1 double]
+     t_prog: [10001×1 double]
+```
+
+Bei einer μ,λ-Implementierung kann es bei der Exploration des Suchraumes auch vorkommen, dass eine bereits akzeptable Lösung wieder verworfen wird. Wenn man an dieser Stelle abbricht, kann das nicht passieren.
+
+```
+>> optimize_limit('LunarLander_param', 20, 40, 100, 1, 64, 'comma', 2.0)
+Generation: 0
+Best solution in generation 1: 15.4556
+Generation: 1
+Best solution in generation 2: 11.5612
+Generation: 2
+Best solution in generation 3: 10.7948
+Generation: 3
+Success rate: 0.60, New delta: 0.8200
+Best solution in generation 4: 7.6757
+Generation: 4
+Best solution in generation 5: 5.7371
+Generation: 5
+Best solution in generation 6: 6.8426
+Generation: 6
+Best solution in generation 7: 3.7985
+Generation: 7
+Success rate: 0.55, New delta: 0.6724
+Best solution in generation 8: 4.3110
+Generation: 8
+Best solution in generation 9: 2.0597
+Generation: 9
+Best solution in generation 10: 2.5353
+Generation: 10
+Target quality 2.0000 reached in generation 10
+Best solution in generation 11: 1.0820
+
+ans = 
+
+  struct with fields:
+
+         t1: 16.2166
+         t2: 38.4508
+         t3: 25.2306
+         t4: 73.8652
+    quality: 1.0820
+     h_prog: [10001×1 double]
+     v_prog: [10001×1 double]
+     t_prog: [10001×1 double]
+```
+
