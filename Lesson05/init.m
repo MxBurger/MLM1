@@ -18,6 +18,6 @@ function [s] = init(max_time)
     end
 
     s.quality = [];
-    s.h_progress = [];
-    s.v_progress = [];
+    s.h_prog = [];
+    s.v_prog = [];
 end

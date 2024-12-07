@@ -82,4 +82,5 @@ function [s] = optimize(model_name, mue, lambda, max_time, delta, n_gens)
         ylabel("H [m], V [m/s]");
         legend("Height", "Velocity");
     hold off
+    s = new_gen{1};
 end

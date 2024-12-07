@@ -16,6 +16,6 @@ function [s] = evaluate(model_name, s, maxTime)
         s.quality = -s.v_prog(impact);
     else
         % We did not land, bye major tom
-        s.quality = min(s.h_prog) * 1.5; % Maybe define quality of no landing in another way
+        s.quality = min(s.h_prog) * 10; % A no-touch is not completely bad
     end
 end
