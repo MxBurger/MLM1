@@ -208,6 +208,6 @@ predator_prey_limit([50, 100, 200]);
 
 ![alt text](3b50.jpg)
 
-![alt text](3b50.jpg)
+![alt text](3b100.jpg)
 
 ![alt text](3b200.jpg)
