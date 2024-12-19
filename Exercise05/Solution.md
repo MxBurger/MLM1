@@ -2,14 +2,18 @@
 ## Task 1
 ### a)
 Simulate (in SIMULINK) the control of the hiring & firing of workers depending on the stock level of a production environment. Initially assume a steady sales of 900 units, a productivity of 10 units per worker, a base of 50 core workstations, and an initial stock level of 100 stock units.
-Document your model and corresponding test results - does this system converge? 
+Document your model and corresponding test results - does this system converge?
+
+>**INFO:**
 
 ![alt text](1a.png)
+![alt text](1a_plot.png)
 
 ### b)
 Introduce a damping constant into the model (with coefficient 0.1). How does this change your model and how does it affect the simulation? 
 
 ![alt text](1b.png)
+![alt text](1b_plot.png)
 
 Das Modell aus Aufgabe a) wurde mit einer Dämpfungskonstanten erweitert, welche das Personal und den Lagerstand in Schwingung versetzt. Dabei kann die Abhängigkeit der beiden Variablen beobachtet werden. Erreicht der Lagerstand den Nullpunkt, ist das Maximum an Angestellten erreicht. Bewegt sich der Lagerstand weiter unter Null wird Personal aufgebaut. Diese Variablen konvergieren ebenfalls nicht. Ein Lagerstand unter 0 könnte als offene Aufträge interpretiert werden.
 
@@ -17,6 +21,7 @@ Das Modell aus Aufgabe a) wurde mit einer Dämpfungskonstanten erweitert, welche
 Let us now assume that the price is calculated as (200 – stock level / 10). Additionally assume that the sales depend on the price, so that the sales are calculated as (900 – price / 10). Again, document your model and the resulting simulations.
 
 ![alt text](1c.png)
+![alt text](1c_plot.png)
 
 ## Task 2
 The proliferation of the fruit fly was experimentally investigated by R. Pearl in 1920 and the following equation for
