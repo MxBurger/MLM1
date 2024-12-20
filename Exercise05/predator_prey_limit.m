@@ -1,5 +1,5 @@
 function predator_prey_limit(alpha4_values)
-    % Parameters
+    % Default parameters
     alpha1 = 0.6; % Prey growth rate
     alpha2 = 500; % Prey capacity
     alpha3 = 0.2; % Predation rate
@@ -14,29 +14,29 @@ function predator_prey_limit(alpha4_values)
     t = 0:t_s:t_max;
     n_steps = length(t);
     
-    % Loop through different alpha4 values
     for alpha4 = alpha4_values
-        % Initialize populations
+
+        % Init
         b = b0;
         r = r0;
-        b_progress = zeros(n_steps, 1);
-        r_progress = zeros(n_steps, 1);
+        b_prog = zeros(n_steps, 1);
+        r_prog = zeros(n_steps, 1);
         
         % Euler
         for i = 1:n_steps
-            db_dt = b * (alpha1 * (1 - b / alpha2) - (alpha3 * r) / (b + alpha4));
-            dr_dt = r * alpha5 * (1 - (alpha6 * r) / b);
-            b = b + db_dt * t_s;
-            r = r + dr_dt * t_s;
-            b_progress(i) = b;
-            r_progress(i) = r;
+            b_ = b * (alpha1 * (1 - b / alpha2) - (alpha3 * r) / (b + alpha4));
+            d_ = r * alpha5 * (1 - (alpha6 * r) / b);
+            b = b + b_ * t_s;
+            r = r + d_ * t_s;
+            b_prog(i) = b;
+            r_prog(i) = r;
         end
         
         % Plot results
         figure;
-        plot(t, b_progress, 'LineWidth', 2);
+        plot(t, b_prog, 'LineWidth', 2);
         hold on;
-        plot(t, r_progress, 'LineWidth', 2);
+        plot(t, r_prog, 'LineWidth', 2);
         xlabel('Time (t)');
         ylabel('Population');
         title(['Predator-Prey Dynamics with \alpha_4 = ', num2str(alpha4)]);

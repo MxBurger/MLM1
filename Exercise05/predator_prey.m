@@ -1,23 +1,23 @@
 function predator_prey(b0, r0, alpha, beta, gamma, delta, t_s, t_max)
     % Default parameters
     if nargin == 0
-        alpha = 0.4;   % Growth rate of prey
+        alpha = 0.4;   % Prey growth rate
         beta = 0.008;  % Interaction coefficient prey-predator
         gamma = 0.3;   % Loss rate of predators
         delta = 0.001; % Growth rate of predators from prey
         b0 = 500;      % Initial prey population
         r0 = 5;        % Initial predator population
-        t_s = 0.001;   % Time step size
-        t_max = 50;    % Maximum simulation time
+        t_s = 0.001;   % Time step
+        t_max = 50;    % Total simulation time
     end
 
-    % Initialization
+    % Init
     t = 0:t_s:t_max;
     n_steps = length(t);
-    b_prog = zeros(n_steps, 1);
-    r_prog = zeros(n_steps, 1);
     b = b0;
     r = r0;
+    b_prog = zeros(n_steps, 1);
+    r_prog = zeros(n_steps, 1);
 
     % Euler
     for i = 1:n_steps
@@ -34,7 +34,7 @@ function predator_prey(b0, r0, alpha, beta, gamma, delta, t_s, t_max)
     hold on;
     plot(t, r_prog, 'LineWidth', 2);
     xlabel('Time (t)');
-    ylabel('Population size');
+    ylabel('Population');
     title('Predator-Prey Population Dynamics');
     legend('Prey', 'Predator');
     grid on;
