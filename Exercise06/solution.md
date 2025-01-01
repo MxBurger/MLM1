@@ -8,7 +8,7 @@ $x^t=\alpha x(t) - \beta x(t)^2$
 
 $\alpha$ ... Wachstumsrate (Kontakte mit infizierten Personen)
 
-$\beta $ ... Rückgang der Infektion
+$\beta$ ... Rückgang der Infektion
 
 $\alpha$ wird zu $k$ und $\beta$ zu $\frac{k}{N}$
 
