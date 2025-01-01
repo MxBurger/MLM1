@@ -371,7 +371,7 @@ function task_4()
     % Contact matrix
     M = [0.9, 0.05, 0.05;
          0.1, 0.7,  0.2;
-         0.3, 0.3,  0.4];
+         0.05, 0.1,  0.85];
     
     % Calculate alpha and beta for each group
     alpha = contacts * infectionProb;
