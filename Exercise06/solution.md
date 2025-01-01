@@ -304,7 +304,7 @@ $\beta_3 = \frac{1}{d_3} = \frac{1}{1.5} = 0.\dot6$
 Folgende Mixture-Matrix kann aufgestellt werden 
 ```math
 M = \begin{bmatrix}
-0.9&0.05 & 0.05 \\
+0.9 &0.05 & 0.05 \\
 0.1 & 0.7 & 0.2 \\
 0.3 & 0.3 & 0.4 \\
 \end{bmatrix}
