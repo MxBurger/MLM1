@@ -159,7 +159,7 @@ task_3a(1000)
 task_3a(10000)
 ```
 
-![](Task3a_10000_Evolution.jpg)
+![alt text](Task3a_10000_Evolution.jpg)
 
 ![alt text](Task3a_10000_Phase.jpg)
 
