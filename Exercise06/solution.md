@@ -9,10 +9,8 @@ progresses for all scenarios are shown.
 Anwendung der Verhulst-Gleichung:
 $x^t=\alpha x(t) - \beta x(t)^2$
 
-$\alpha$ ... Wachstumsrate (Kontakte mit infizierten Personen)
-
-$\beta$ ... Rückgang der Infektion
-
+$\alpha$ ... Wachstumsrate (Kontakte mit infizierten Personen) \
+$\beta$ ... Rückgang der Infektion \
 $\alpha$ wird zu $k$ und $\beta$ zu $\frac{k}{N}$
 
 $I' = kI-\frac{k}{N}I^2$ 
@@ -271,3 +269,116 @@ task_3b()
 ![alt text](Task3b_1000_Evolution.jpg)
 
 ![alt text](Task3b_1000_Phase.jpg)
+
+
+## Task 4
+
+Let us assume three groups in a population with one „core group“:
+- Group 1: n = 1000, 2 contacts / week, contact ratios: 0.9, 0.05, 0.05
+- Group 2: n = 100, 10 contacts / week, contact ratios: 0.1, 0.7, 0.2 
+- Group 3: n = 500, 4 contacts / week, contact ratios: 0.05, 0.1, 0.85
+
+ Infection probability at contact: 15% \
+ An infectious period lasts for 2 weeks for groups 1 and 2, 1.5 weeks for group 3\
+Calculate the progress of the infections in the groups 1 - 3, assuming that there are initially 5 diseased persons in group 3.
+
+### Lösungsidee
+... nuffin :D ...
+
+### Ausarbeitung
+$k$ ... Kontakte pro Woche \
+$d$ ... Wochen bis zur Genesung
+
+- Gruppe 1: \
+$\alpha_1 = q*k_1 = 0.15*2 = 0.3$ \
+$\beta_1 = \frac{1}{d_1} = \frac{1}{2} = 0.5$
+
+- Gruppe 2: \
+$\alpha_2 = q*k_2 = 0.15*10 = 1.5$ \
+$\beta_2 = \frac{1}{d_2} = \frac{1}{2} = 0.5$
+
+- Gruppe 3: \
+$\alpha_3 = q*k_3 = 0.15*4 = 0.6$ \
+$\beta_3 = \frac{1}{d_3} = \frac{1}{1.5} = 0.\dot6$
+
+Folgende Mixture-Matrix kann aufgestellt werden \
+$M = \begin{bmatrix}
+0.9 & 0.05 & 0.05 \\
+0.1 & 0.7 & 0.2 \\
+0.3 & 0.3 & 0.4 
+\end{bmatrix}$
+
+### Implementierung
+```matlab
+function task_4()
+    % Simulation parameters
+    tMax = 50;
+    tStep = 0.01;
+    timePoints = 0:tStep:tMax;
+    
+    % Population parameters
+    N = [1000, 100, 500];  % Population sizes
+    contacts = [2, 10, 4];  % Contacts per week
+    infectionProb = 0.15;   % Infection probability at contact
+    recoveryTime = [2, 2, 1.5];  % Weeks until recovery
+    
+    % Contact matrix
+    M = [0.9, 0.05, 0.05;
+         0.1, 0.7,  0.2;
+         0.3, 0.3,  0.4];
+    
+    % Calculate alpha and beta for each group
+    alpha = contacts * infectionProb;
+    beta = 1 ./ recoveryTime;
+    
+    % Initialize state variables
+    S = zeros(length(timePoints), 3);
+    I = zeros(length(timePoints), 3);
+    R = zeros(length(timePoints), 3);
+    
+    % Initial conditions
+    S(1,:) = N;
+    I(1,:) = [0, 0, 5];  % 5 initial infected in group 3
+    S(1,:) = S(1,:) - I(1,:);
+    R(1,:) = zeros(1,3);
+    
+    % Time integration using Euler method
+    for t = 1:length(timePoints)-1
+        for i = 1:3
+            % Calculate infection term
+            infectionTerm = 0;
+            for j = 1:3
+                infectionTerm = infectionTerm + M(i,j) * I(t,j) / N(j);
+            end
+            
+            % Calculate derivatives
+            dS = -alpha(i) * S(t,i) * infectionTerm;
+            dI = alpha(i) * S(t,i) * infectionTerm - beta(i) * I(t,i);
+            dR = beta(i) * I(t,i);
+            
+            % Euler step
+            S(t+1,i) = S(t,i) + dS * tStep;
+            I(t+1,i) = I(t,i) + dI * tStep;
+            R(t+1,i) = R(t,i) + dR * tStep;
+        end
+    end
+    
+    % Plotting
+    figure('Position', [100, 100, 800, 500]);
+    plot(timePoints, I(:,1), 'LineWidth', 2);
+    hold on;
+    plot(timePoints, I(:,2), 'LineWidth', 2);
+    plot(timePoints, I(:,3), 'LineWidth', 2);
+    grid on;
+    xlabel('Time [weeks]');
+    ylabel('Number of infected people I(t)');
+    title('SIR Model for Heterogeneous Population');
+    legend('Group 1 (n=1000)', 'Group 2 (n=100)', 'Group 3 (n=500)');
+end
+```
+
+### Aufruf
+```
+task_4()
+```
+![alt text](Task4.jpg)
