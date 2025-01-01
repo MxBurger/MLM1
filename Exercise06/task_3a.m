@@ -1,4 +1,4 @@
-function task_2a(N)
+function task_3a(N)
    % Model parameters
    if nargin < 1, N = 100;  end
    % Population size

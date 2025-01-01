@@ -1,4 +1,4 @@
-function epidemic_simulation(N, k_values, t_max, dt)
+function task_1(N, k_values, t_max, dt)
     % Default parameters if not provided
     if nargin < 1, N = 10000; end
     if nargin < 2, k_values = [10, 20, 30, 50]; end
