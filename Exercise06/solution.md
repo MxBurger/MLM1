@@ -290,15 +290,15 @@ $k$ ... Kontakte pro Woche \
 $d$ ... Wochen bis zur Genesung
 
 - Gruppe 1: \
-$\alpha_1 = q*k_1 = 0.15*2 = 0.3$ \
+$\alpha_1 = qk_1 = 0.15*2 = 0.3$ \
 $\beta_1 = \frac{1}{d_1} = \frac{1}{2} = 0.5$
 
 - Gruppe 2: \
-$\alpha_2 = q*k_2 = 0.15*10 = 1.5$ \
+$\alpha_2 = qk_2 = 0.15*10 = 1.5$ \
 $\beta_2 = \frac{1}{d_2} = \frac{1}{2} = 0.5$
 
 - Gruppe 3: \
-$\alpha_3 = q*k_3 = 0.15*4 = 0.6$ \
+$\alpha_3 = qk_3 = 0.15*4 = 0.6$ \
 $\beta_3 = \frac{1}{d_3} = \frac{1}{1.5} = 0.\dot6$
 
 Folgende Mixture-Matrix kann aufgestellt werden \
