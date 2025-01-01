@@ -302,10 +302,7 @@ $\alpha_3 = q \times  k_3 = 0.15 \times 4 = 0.6$ \
 $\beta_3 = \frac{1}{d_3} = \frac{1}{1.5} = 0.\dot6$
 
 Folgende Mixture-Matrix kann aufgestellt werden \
-$M=\begin{bmatrix}
-0.9&0.05&0.05\\
-0.1&0.7&0.2\\
-0.3&0.3&0.4\end{bmatrix}$
+$M=\begin{bmatrix}0.9&0.05&0.05\\0.1&0.7&0.2\\0.3&0.3&0.4\end{bmatrix}$
 
 ### Implementierung
 ```matlab
