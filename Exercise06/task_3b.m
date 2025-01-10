@@ -1,12 +1,12 @@
 function task_3b(N)
    % Model parameters
-   if nargin < 1, N = 1000; end
+   if nargin < 1, N = 10000; end
    beta = 0.1;         % Recovery rate (1/10 days)
    R0 = 7.5;          % Basic reproduction number
    alpha = R0 * beta;  % Infection rate
    mu = 0.0003;       % Birth/death rate
    pcrit = 1 - 1/R0;  % Critical vaccination rate
-   tMax = 100;        % Simulation time in weeks
+   tMax = 10000;        % Simulation time in weeks
    dt = 0.01;         % Time step
 
    % Initial conditions
@@ -55,7 +55,7 @@ function task_3b(N)
    % Plot time evolution
    figure(1);
    subplot(2,1,1);
-   plot(time, [S1_prog I1_prog R1_prog]);
+   plot(time, [S1_prog I1_prog R1_prog], 'LineWidth', 2);
    title('SIR with Demographics (No Vaccination)');
    legend('S', 'I', 'R');
    xlabel('Time (weeks)');
@@ -63,7 +63,7 @@ function task_3b(N)
    grid on;
 
    subplot(2,1,2);
-   plot(time, [S2_prog I2_prog R2_prog]);
+   plot(time, [S2_prog I2_prog R2_prog], 'LineWidth', 2);
    title(['SIR with Demographics (p = ' num2str(pcrit) ')']);
    legend('S', 'I', 'R');
    xlabel('Time (weeks)');
