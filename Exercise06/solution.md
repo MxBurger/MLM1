@@ -1,4 +1,4 @@
-# Übung 05
+# Übung 06
 
 ## Task 1
 Assume a disease for which we can model its spread in a population by a logistic model. Calculate
@@ -85,6 +85,8 @@ Calculate the adrenalin content for $\alpha = 0.2$, $a = 0.1$, $b = 0.025$ and t
 Die Differentialgleichung mit Berücksichtigung der Abbaurate $\alpha$ lautet: $\frac{dA}{dt}=f(t)-\alpha\cdot A(t)$
 - Implementierung mittels Euler-Schrittverfahren
 
+
+<!-- pagebreak -->
 
 
 
@@ -343,9 +345,14 @@ end
 task_3b()
 ```
 
-![alt text](Task3b_1000_Evolution.jpg)
+![Task3b_better_params.jpg](Task3b_better_params.jpg)
 
-![alt text](Task3b_1000_Phase.jpg)
+![Task3b_better_params_Phase.jpg](Task3b_better_params_Phase.jpg)
+
+Die positiven Effekte der Impfung lassen sich erst über einen längeren Beobachtungszeitrahmen erkennen.
+
+<!-- pagebreak -->
+
 
 
 ## Task 4
