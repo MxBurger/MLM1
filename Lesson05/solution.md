@@ -16,11 +16,18 @@ Verwendete Simulationsparameter:
 - Startzeit: *0.0*
 - Stopzeit: *100.0*
 
+<!-- pagebreak -->
+
+
+
 Erzeugte Kraft der Thruster:
 ![alt text](1a_thrust.png)
 
 Geschwindigkeit und Höhe
 ![alt text](1a_scope.png)
+
+<!-- pagebreak -->
+
 
 
 ##### b) Do changes of the solver (settings) significantly change the simulation result? Document changes by using other integration methods and changing step size settings. Discuss your results.
@@ -88,6 +95,8 @@ Danach prallt der LunarLander mit ca 28.5m/s auf die Oberfläche. RIP Astronaute
 
 Mit einer Senkung der Thrustdauer des 34kN-Thrusters -> eine Reduktion von $t4$ auf auf 40.86s kann auch mit dem neuen Modell der LunarLander sanft gelandet werden. Der Touchdown findet hierbei mit -1.013 m/s nach 51.35s statt.
 
+<!-- pagebreak -->
+
 Mit:
 - $t_1=13.75$
 - $t_2=65$
@@ -105,7 +114,7 @@ Verwendete Simulationsparameter:
 # Task 2
 ##### a) Implement an evolutionary optimization algorithm (in MATLAB) based on an ES, which optimizes the lunar landing of Task 1.
 
-Für diesen Task wurde eine μ,λ Evolutions-Strategie implementiert.
+Für diesen Task wurde eine μ,λ - und eine μ+λ - Evolutions-Strategie implementiert.
 Die Implementierung unterliegt folgenden Grundzügen:
 
 ###### Problem-Abbildung
@@ -825,8 +834,8 @@ optimize_limit('LunarLander_param', 20, 40, 100, 1, 64, 'plus', 2.0)
 
 ![alt text](2b_addon.jpg)
 
-Bereits nach 3 Generationen wurde die gewünschte Mindest-Qualität erreicht.
-```
+Bereits nach 3 Generationen wurde die gewünschte Mindest-Qualität erreicht. (Lucky)
+``` 
 >> optimize_limit('LunarLander_param', 20, 40, 100, 1, 64, 'plus', 2.0)
 Generation: 0
 Best solution in generation 1: 7.5995 m/s
