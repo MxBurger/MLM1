@@ -130,12 +130,24 @@ task_2()
 ```
 ![alt text](Task2.jpg)
 
+Für eine Kontextualisierung des Plots fehlt mir die medizinische / biologische Fachkenntnis, dennoch ist es sehr interessant, was sich im menschlichen Körper abspielt. :smile:
+
 ## Task 3
 
 ### a) Assume that the basic reproduction number of a measles epidemic is R0 = 7.5, and that the average infectious period of a patient lasts 10 days. Calculate the progress of the epidemic using the standard SIR model without births and deaths.
 
 ### Lösungsidee
-... wow so much empty ...
+
+Anhand der Angabe werden folgende Parameter identifiziert:
+- $R_0 = 7.5$ ... Basis-Reproduktionszahl
+- $\beta = 0.1$ ... Genesungsrate ($\frac{1}{10}$) Tage
+- $\alpha = R_0 \cdot \beta$
+
+Simuliert wird mit dem Euler-Verfahren und eine Dauer von 30 Tagen
+
+$S'(t) = -\alpha \cdot S(t) \cdot I(t) / N$
+$I'(t) = \alpha \cdot S(t) \cdot I(t) / N - \beta \cdot I(t)$
+$R'(t) = \beta \cdot I$
 
 ### Implementierung
 ```matlab
@@ -227,7 +239,10 @@ task_3a(10000)
 
 
 ### Lösungsidee
-... wow so much empty ...
+**Annahme:** Zusätzlich zur geforderten Geburten-Rate wird auch eine Sterbe-Rate eingeführt. 
+
+- Erweiterung des SIR-Modells durch eine konstante Geburten- und Sterberate $\mu$
+- Berechnung des kritischen Impfanteils $p_{crit} = 1 - \frac{1}{R_0}$
 
 ### Implementierung
 
@@ -345,9 +360,7 @@ Let us assume three groups in a population with one „core group“:
 Calculate the progress of the infections in the groups 1 - 3, assuming that there are initially 5 diseased persons in group 3.
 
 ### Lösungsidee
-... nuffin :D ...
-
-### Ausarbeitung
+Aus der Angabe können  alle notwendigen Parameter entnommen werden.
 $k$ ... Kontakte pro Woche \
 $d$ ... Wochen bis zur Genesung
 
@@ -368,7 +381,7 @@ Folgende Mixture-Matrix kann aufgestellt werden
 M = \begin{bmatrix}
 0.9 &0.05 & 0.05 \\
 0.1 & 0.7 & 0.2 \\
-0.3 & 0.3 & 0.4 \\
+0.05 & 0.1 & 0.85 \\
 \end{bmatrix}
 ```
 
@@ -446,3 +459,8 @@ end
 task_4()
 ```
 ![alt text](Task4.jpg)
+
+### Interpretation
+- **Gruppe 1**: Langsames Wachstum der Infektionszahlen, wegen geringer Kontaktzahl und die Mehrheit der Kontakte innerhalb der Gruppe statt findet
+- **Gruppe 2**:  Schnellerer Anstieg der Infektionszahlen aufgrund der hohen Kontaktzahl
+- **Gruppe 3**: Initial gibt es schon infizierte Personen, die kürzere Genesungszeit wirkt sich positiv auf den Verlauf der Kurve aus. 
