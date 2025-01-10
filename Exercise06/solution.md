@@ -2,7 +2,7 @@
 
 ## Task 1
 Assume a disease for which we can model its spread in a population by a logistic model. Calculate
-the progress of the disease for N = 10000 and k = 10, 20, 30, 50; produce a time diagram in which all
+the progress of the disease for $N$ = 10000 and $k$ = 10, 20, 30, 50; produce a time diagram in which all
 progresses for all scenarios are shown.
 
 ### Lösungsidee
@@ -17,7 +17,7 @@ $I' = kI-\frac{k}{N}I^2$
 
 ### Implementierung
 
-Berechnungs-Funktion
+Lösungs-Funktion
 ```matlab
 function I = simulate_spread(N, k, t, dt)
     I = zeros(size(t));
@@ -64,11 +64,29 @@ task_1()
 
 ![Task1](Task1.jpg)
 
+### Interpretation
+- annähernd exponentielles Wachstum der Infizierten zu Beginn
+- Eine Abflachung des Wachstums, wenn sich die Infektionsrate der maximalen Populationsgröße $N$ nähert.
+- Unterschiede im Verlauf für verschiedene $k$-Werte:
+    - Höhere $k$-Werte führen zu einem schnelleren Wachstum und einer früheren Sättigung.
+    - Niedrigere $k$-Werte bedeuten langsamere Ausbreitung.
 
 ## Task 2
 
+Adrenaline is secreted by the adrenal gland and secreted by enzymes. The time-dependent secretionrate can be modeled as by the function $f (t) = a + b \cdot cos (\frac{π \cdot (t-8)}{12})$, with $a> b> 0$ constant.
+Assuming that the rate of degradation is proportional (with coefficient $\alpha$) to the current adrenaline
+concentration $A(t)$, set up a differential equation for $A$.
+Calculate the adrenalin content for $\alpha = 0.2$, $a = 0.1$, $b = 0.025$ and the initial value $1$ in the period $0 ≤ t < 48$.
+(Both simulation and direct calculation are valid solutions!)
+
 ### Lösungsidee
-...
+- Lösung mittels Simulation
+- Gleichung für Sekretionsrate wird aus Angabe übernommen: $f (t) = a + b \cdot cos (\frac{π \cdot (t-8)}{12})$
+Die Differentialgleichung mit Berücksichtigung der Abbaurate $\alpha$ lautet: $\frac{dA}{dt}=f(t)-\alpha\cdot A(t)$
+- Implementierung mittels Euler-Schrittverfahren
+
+
+
 
 ### Implementierung
 
