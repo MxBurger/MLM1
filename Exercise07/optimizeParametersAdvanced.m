@@ -1,4 +1,5 @@
-function [bestAlpha, bestBeta, bestFitness, alphaProgress, betaProgress] = optimizeParametersAdvanced(alphaMax, betaMax, strategy, mu, lambda, adaptMutation, maxRounds, initialSigma)
+function [bestAlpha, bestBeta, bestFitness, alphaProgress, betaProgress] = ...
+    optimizeParametersAdvanced(alphaMax, betaMax, strategy, mu, lambda, adaptMutation, maxRounds, initialSigma)
     
     % default values
     if nargin < 3
@@ -50,8 +51,8 @@ function [bestAlpha, bestBeta, bestFitness, alphaProgress, betaProgress] = optim
             parentIdx = randi(mu);
             parentSigma = parents(parentIdx,4);
             
-            newAlpha = parents(parentIdx,1) + randn * parentSigma;
-            newBeta = parents(parentIdx,2) + randn * parentSigma;
+            newAlpha = max(0, min(alphaMax, parents(parentIdx,1) + randn * parentSigma));
+            newBeta = max(0, min(betaMax, parents(parentIdx,2) + randn * parentSigma));
             newFitness = evaluateReindeerOutbreak(newAlpha, newBeta, false);
             
             % Adapt mutation strength if enabled
