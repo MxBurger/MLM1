@@ -122,9 +122,40 @@ Model the control of the water tank discussed in the lecture; design and test bo
 
 ### Beobachtungen
 
-- Der P-Regler überschwingt nicht, hat jedoch eine bleibende Regelabweichung.
-- Der PI-Regler überschwingt (mit den entsprechenden Parametern) vorerst, erreicht aber dann einen stabilen Zustand ohne Regelabweichung.
+#### P-Regler
+**Vorteile:**
 
-#### Parameter-Auswirkungen
+- Einfache Implementierung und Einstellung über einen einzigen Parameter ($Kp$)
+- Schnelle Reaktion auf Störungen
+- Stabil bei richtig gewähltem $Kp$
+
+**Nachteile:**
+
+- Bleibende Regelabweichung im stabilen Zustand
+- Bei zu hohem $Kp$ kann es zu Oszillationen kommen
+- Kompromiss zwischen Schnelligkeit und Genauigkeit notwendig
+
+#### PI-Regler
+**Vorteile:**
+
+- Keine bleibende Regelabweichung durch den I-Anteil
+
+**Nachteile:**
+
+- Komplexere Parametereinstellung ($Kp$ und $Tn$ müssen aufeinander abgestimmt werden)
+- Langsamere Reaktion als reiner P-Regler
+- Mögliche Überschwinger durch I-Anteil
+- Potentiell längere Ausregelzeit
+
+#### Parameter
+
+**P-Regler:**
+- Höheres $Kp$: schnellere Reaktion, aber mehr Schwingungsneigung
+- Niedrigeres $Kp$: stabileres Verhalten, aber größere bleibende Regelabweichung
+
+**PI-Regler:**
+- $Kp$ beeinflusst hauptsächlich die Schnelligkeit der Regelung
+- Kleines $Tn$: schnellerer Ausgleich der Regelabweichung, aber mehr Überschwinger
+- Großes $Tn$: stabileres Verhalten, aber langsamerer Ausgleich
 
 

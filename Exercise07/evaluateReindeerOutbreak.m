@@ -7,7 +7,7 @@ function fitness = evaluateReindeerOutbreak(alpha, beta, plotIt)
 
     % observed data
     days = 0:14;
-    observedInfected = [1, 5, 12, 40, 90, 180, 240, 210, 170, 120, 80, 40, 20, 5, 1];
+    observedInfected = [1, 5, 10, 30, 90, 220, 280, 240, 230, 190, 130, 80, 55, 15, 4];
     N = 500;
 
     S = N - 1;
