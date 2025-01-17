@@ -35,7 +35,7 @@ function runTest(testName, mu, lambda, strategy, adaptMutation, initialSigma)
 end
 
 mu_values = [1, 3, 7, 10, 20];
-lambda_factors = [1, 3, 7, 10];  % lambda = mu * lambda_factor
+lambda_factors = [3, 7, 10, 20];  % lambda = mu * lambda_factor
 strategies = {'plus', 'comma'};
 sigma_values = [0.3, 0.7, 1.0];
 
