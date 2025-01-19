@@ -17,7 +17,7 @@ Für die Parameter-Identifikation des SIR-Modells wird eine Evolutionsstrategie 
 Verwendet wird quadratische Abweichung zwischen simulierten und beobachteten Infektionszahlen. Je kleiner der Fitnesswert, desto besser die Parameteranpassung. 
 
 **Evolutionsstrategien:**
-Implementierung verschiedener (μ+λ) und (μ,λ) Varianten
+Implementierung einer *μ+λ* - und *μ,λ* - Variante
 Vergleich mit und ohne Mutationsstärkenanpassung
 
 **Parameteroptimierung:**
