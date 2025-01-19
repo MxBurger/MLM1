@@ -7,6 +7,22 @@ adaptation of mutation strength.
 
 ### Lösungsidee
 
+Für die Parameter-Identifikation des SIR-Modells wird eine Evolutionsstrategie implementiert, die zwei zentrale Parameter optimiert:
+
+- $\alpha$ (Infektionsrate)
+- $\beta$ (Genesungsrate)
+
+
+**Fitness-Funktion:**
+Verwendet wird quadratische Abweichung zwischen simulierten und beobachteten Infektionszahlen. Je kleiner der Fitnesswert, desto besser die Parameteranpassung. 
+
+**Evolutionsstrategien:**
+Implementierung verschiedener (μ+λ) und (μ,λ) Varianten
+Vergleich mit und ohne Mutationsstärkenanpassung
+
+**Parameteroptimierung:**
+Zufällige Initialisierung der Startpopulation, Mutation der Parameter mit adaptiver oder fester Schrittweite, Selektion der besten Individuen basierend auf ihrer Fitness
+
 ### Implementierung
 
 Optimierungs-Funktion
@@ -278,6 +294,7 @@ best fitness: 6883.870593
 ```
 
 ### Tests mit verschiedenen Parametern
+(Testcode im letzten Kapitel des Dokuments)
 
 ```
 Test                                               | Alpha  | Beta   | Fitness  | Mu    | Sigma     
@@ -509,7 +526,6 @@ Model the control of the water tank discussed in the lecture; design and test bo
 - Kleines $Tn$: schnellerer Ausgleich der Regelabweichung, aber mehr Überschwinger
 - Großes $Tn$: stabileres Verhalten, aber langsamerer Ausgleich
 
-
 ## Anhang Testcode für Aufgabe 1
 
 ```matlab
@@ -630,5 +646,3 @@ for strat = strategies_used
     end
 end
 ```
-
-
