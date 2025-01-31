@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="25.0.3">
+  <diagram name="Seite-1" id="GMnHuB2lfzTXhWq3pvHe">
+    <mxGraphModel dx="691" dy="385" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-1" target="9FxSMTVSUzi8TisCwRmt-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-1" value="Customer Arrival" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="160" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-3" target="9FxSMTVSUzi8TisCwRmt-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-3" value="CA Event" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="330" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-5" target="9FxSMTVSUzi8TisCwRmt-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-5" value="Service Start Event" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="660" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;flowAnimation=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-7" target="9FxSMTVSUzi8TisCwRmt-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-7" value="C. in queue" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="483" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-8" target="9FxSMTVSUzi8TisCwRmt-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-8" value="C. being served" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="820" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-9" target="9FxSMTVSUzi8TisCwRmt-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-9" value="Service End Event" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="990" y="90" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-10" target="9FxSMTVSUzi8TisCwRmt-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-10" value="C. departure" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-11" value="End" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="95" width="40" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-19" target="9FxSMTVSUzi8TisCwRmt-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-19" value="Start" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="80" y="95" width="40" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-21" target="9FxSMTVSUzi8TisCwRmt-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-21" target="9FxSMTVSUzi8TisCwRmt-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-21" value="potential Adopter" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="580" y="270" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;" edge="1" parent="1" source="9FxSMTVSUzi8TisCwRmt-22" target="9FxSMTVSUzi8TisCwRmt-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-22" value="Adopter" style="ellipse;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+          <mxGeometry x="580" y="390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-26" value="" style="shape=message;html=1;html=1;outlineConnect=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="650" y="360" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="9FxSMTVSUzi8TisCwRmt-27" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#000000;shadow=0;dashed=0;shape=mxgraph.ios7.icons.clock;" vertex="1" parent="1">
+          <mxGeometry x="690" y="360" width="10" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
