@@ -1,6 +1,6 @@
-model = createpde('thermal', 'transient');
+model = createpde('thermal', 'steadystate');
 
-importGeometry(model, "PanV1.stl");
+importGeometry(model, "PanV2.stl");
 
 % plot faces
 figure
@@ -23,10 +23,10 @@ T_ext = 20;
 thermalIC(model, T_ext); 
 
 % heat face
-thermalBC(model, 'Face', 9, 'Temperature', 1000);
+thermalBC(model, 'Face', 9, 'Temperature', 350);
 h = 2; 
 
-% convection all other faces
+% convection cool all other faces
 allFaces = 1:model.Geometry.NumFaces;
 thermalBC(model, 'Face', [1:8, 10:max(allFaces)], 'ConvectionCoefficient', h, 'AmbientTemperature', T_ext);
 
@@ -35,17 +35,15 @@ figure
 pdeplot3D(model)
 title("Mesh")
 
-tlist = 0:200:1000;
 
-results = solve(model, tlist);
+result = solve(model);
 
 % plot
-for i = 1:length(tlist)
-    figure
-    pdeplot3D(model, 'ColorMapData', results.Temperature(:,i))
-    title(['Temperaturverteilung nach ' num2str(tlist(i)) ' Sekunden'])
-    colormap('jet')
-    colorbar
-    view(30,30)
-    drawnow
-end
+figure
+pdeplot3D(model, 'ColorMapData', result.Temperature)
+title("Heat Distribution")
+colormap('jet')
+colorbar
+view(30,30)
+drawnow
+
