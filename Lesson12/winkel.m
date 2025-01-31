@@ -36,5 +36,5 @@ maxStress = max(result.VonMisesStress);
 maxDisp = max(sqrt(result.Displacement.x.^2 + ...
                   result.Displacement.y.^2 + ...
                   result.Displacement.z.^2));
-fprintf('Maximum von Mises stress: %.2f MPa\n', maxStress/1e6)
+fprintf('Maximum von Mises stress: %.2f Pa\n', maxStress)
 fprintf('Maximum displacement: %.2f mm\n', maxDisp)
