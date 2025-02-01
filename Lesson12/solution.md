@@ -90,7 +90,7 @@ Maximum von Mises stress: 10040.18 Pa
 Maximum displacement: 4.64 mm
 ```
 
-Quelle 3D-Modell: https://www.thingiverse.com/thing:4866024
+>Quelle 3D-Modell: https://www.thingiverse.com/thing:4866024
 
 Die Werte und die Verformung wirken plausibel, für eine genaue Beurteilung fehlt es mir an mechanischen Hintergrundwissen. :(
 
@@ -194,8 +194,7 @@ drawnow
 
 ![alt text](img/pan_heat.jpg)
 
-Anhand der Farbskala ist zu entnehmen, dass obwohl die Pfannen-Innenseite gut durchgeheizt ist, der Griff berührbar bleit.
+Anhand der Farbskala ist zu entnehmen, dass obwohl die Pfannen-Innenseite gut durchgeheizt ist, der Griff berührbar bleibt.
 
->$300K$ Pfannenboden-Temperatur und $20K$ sind absolut gesehen sehr niedrige Temperaturen, jedoch spielt nur der relative Unterschied zwischen Pfanne und Umgebungs-Temperatur für die Simulation eine Rolle.
-
+>$350K$ Pfannenboden-Temperatur und $20K$ sind absolut gesehen sehr niedrige Temperaturen, jedoch spielt nur der relative Unterschied zwischen Pfanne und Umgebungs-Temperatur für die Simulation keine Rolle.
 Das verwendete 3D-Modell wurde selbst erstellt.
