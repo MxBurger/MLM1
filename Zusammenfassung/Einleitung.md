@@ -90,3 +90,118 @@ Die Simulation soll effizient durchgeführt werden können:
 | Wetter-Berechnungen  | LAN-Simulation  |
 | Wirtschafts-Modelle  | Logistik  |
 | ...  | ...  |
+
+## Modellierung
+Man betreibt Abstraktion auf die wesentlichen Teile von Systemen, angetrieben durch die Definition der Modellierungs-/Simulations-Ziele:
+- Auswahl von Elementen
+- Abstraktion/Aggregation von Komponenten
+- Abstraktion/Aggregation von Zuständen
+- Abstraktion von Verhalten
+
+![Modellierung](img/Modellierung.svg)
+
+### Deduktive Modellierung
+Modellierung basierend auf Wissen und Einsicht in den Prozess:
+- Regeln, Gleichungen, Gesetze, Prinzipien
+- Grundlegendes Wissen, Lehrsätze
+- Strukturelles Wissen
+
+Der deduktive Ansatz geht von bekanntem Wissen und Theorien aus und leitet daraus das Modell ab.
+
+### Induktive Modellierung
+Modellierung basierend auf gemessenen Daten zur Identifizierung und Verifizierung von Modellen:
+- Beobachtungen, Messungen, Annahmen
+- Statistische Ansätze, Data Mining, Künstliche Intelligenz
+
+Der induktive Ansatz beginnt bei konkreten Beobachtungen und Daten und versucht daraus allgemeinere Modelle abzuleiten.
+
+## System-Theorie - Die Basics
+
+![System-Theorie](img/SystemTheorie.svg)
+Im allgemeinen Fall werden die Inputs nicht von den Interaktionen der Komponenten beeinflusst.
+
+Mathematisch wird ein allgemeines dynamisches System als 6-Tupel formuliert:
+$S=(T, A, B, Q, \delta, \lambda)$ (System, Automat)
+- $T$ Zeitdomäne (Zeitbereich)
+- $A$ Eingangsdomäne (Eingangsbereich)
+- $B$ Ausgangsdomäne (Ausgangsbereich)
+- $Q$ Zustands-Menge
+- $\delta : Q \times A \rightarrow Q$ globale Zustandsübergangsfunktion
+- $\lambda : Q \times B \rightarrow Q$ Ausgabefunktion
+
+Die Zustandsübergangsfunktion $\delta$ definiert, wie sich der Systemzustand basierend auf dem aktuellen Zustand und Eingang ändert. Die Ausgabefunktion $\lambda$ bestimmt, welche Ausgabe das System bei gegebenem Zustand und Eingang erzeugt.
+
+## Der Modellbasierte Lösungs-Prozess
+![Modellbasierter Lösungs-Prozess](img/ModellBasierterProzess.svg)
+
+## Realtime vs. Simulationszeit
+
+- Während eines Simulationsschritts wird Realtime (Laufzeit) verbraucht, aber keine Simulationszeit
+- Während der Aktualisierung der Simulationszeit wird Simulationszeit verbraucht, aber keine Realtime
+
+D.h. die Modell-/Simulationszeit ist unabhängig von der tatsächlichen Ausführungszeit (Realtime/Laufzeit) der Berechnungen. Das bedeutet:
+
+- Die Simulation kann schneller als Realtime laufen
+- Sie kann auch langsamer als Realtime laufen (wenn komplexe Berechnungen nötig sind/ der Prozess in echt sehr schnell ist)
+- Die Ergebnisse der Simulation bleiben gleich, unabhängig davon, wie lange die Berechnung tatsächlich dauert.
+
+
+## Kontinuierliche Simulation
+
+![Kontinuierliche Simulation](img/KontinuierlicheSimulation.svg)
+
+- Modell-Formalismus: Differentialgleichungssysteme
+- Simulationsmethode: Numerische Integration
+    - Kontinuierliches Verhalten muss angemessen diskretisiert werden
+    - Berechnung von Zeitschritt zu Zeitschritt
+
+Obwohl das reale System kontinuierlich ist, muss es für die computergestützte Simulation in diskrete Zeitschritte zerlegt werden. Die Genauigkeit der Simulation hängt dabei von der Wahl der Zeitschrittweite ab. Als **Simulations-Fehler** bezeichnet man die Abweichung zum echten Werte-Verlauf.
+
+## Diskrete Schrittweise Simulation
+
+![Diskrete Schrittweise Simulation](img/DiskretSchrittweiseSimulation.svg)
+- Modell-Formalismus: Differenzensystemen und endlichen Zustandsautomaten
+- Simulationsmethode: Zeitgetaktete Simulation
+    - Taktgeber wird benötigt
+    - Die Bestimmung von Zustand/Zuständen im nächsten Zeitschritt durch definierte Zustandsübergänge
+
+Bei der diskreten schrittweisen Simulation werden Systeme betrachtet, die sich in definierten Zeitschritten von einem Zustand in den nächsten bewegen. Ein vorgegebener Takt (Clock) bestimmt dabei die Intervalle, in denen Zustandsänderungen möglich sind. Die Zustandsübergänge werden durch vorab definierte Regeln festgelegt, die beschreiben, wie sich das System von einem Zeitpunkt zum nächsten entwickeln kann.´
+
+
+## Ereignisorientierte Diskrete Simulation
+
+![Ereignisorientierte Diskrete Simulation](img/EreignisOrientierteDiskreteSimulation.svg)
+
+- Modell-Formalismus: Diskrete Ereignissysteme (DEVS)
+    - Ereignisse können zu jeder Zeit auftreten
+    - Zustandsänderungen nur bei Ereignissen
+    - Zeitdauer zwischen Ereignissen ist wichtig
+
+- Simulationsmethode: Ereignislisten-Methode
+    - Kein Takt/Clock
+
+Bei der ereignisorientierten diskreten Simulation werden Systemzustände nur dann verändert, wenn spezifische Ereignisse auftreten. Anders als bei der getakteten Simulation gibt es keinen regelmäßigen Zeitrhythmus, sondern das System springt von einem Ereignis zum nächsten. Zwischen diesen Ereignissen bleiben die Systemzustände konstant.
+
+
+## Zusammengefasst
+
+Modellierung und Simulation sind:
+- eine experimentelle Methode
+- zur Analyse dynamischer Systeme
+- ein relativ altes Gebiet der Informatik
+- sehr anwendungsorientiert
+- strukturiert in mehreren Methodenklassen:
+    - kontinuierlich - diskret
+    - makro - mikro
+    - quantitativ - qualitativ
+    - induktiv - deduktiv
+    - stochastisch - deterministisch
+
+Anforderungen an Modellierung und Simulation sind:
+- Angemessene Modellbeschreibung
+- Korrekte und effiziente Ausführung
+- Komfortable Durchführung von Simulationsexperimenten
+
+>Moderne Werkzeuge wie Matlab oder Anylogic können diesen Anforderungen für einen großen Teil von Modellierungs- und Simulationsaufgaben gerecht werden.
+
+![alt text](img/ransch.png | width=100)
