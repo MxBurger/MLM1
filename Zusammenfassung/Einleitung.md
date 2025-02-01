@@ -204,4 +204,4 @@ Anforderungen an Modellierung und Simulation sind:
 
 >Moderne Werkzeuge wie Matlab oder Anylogic können diesen Anforderungen für einen großen Teil von Modellierungs- und Simulationsaufgaben gerecht werden.
 
-![alt text](img/ransch.png | width=100)
+<img src="img/ransch.png" width="96">
