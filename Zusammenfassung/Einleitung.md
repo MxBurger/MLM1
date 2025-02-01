@@ -18,6 +18,8 @@ Computersimulation ist die Nachbildung realer Systeme mit Computern. Der Fokus d
 #### Problem nicht analytisch lösbar
 - Fragen können zwar formuliert werden, aber
 - keine effektiven/effizienten Antworten/Lösungen können entwickelt werden
+(*Effektiv* bedeutet, dass überhaupt eine funktionierende Lösung gefunden werden kann, die zum gewünschten Ziel führt - also die Wirksamkeit einer Lösung. (Eine ineffektive Lösung würde das Problem gar nicht lösen))
+(*Effizient* bezieht sich darauf, wie gut die Ressourcen (Zeit, Rechenleistung, Kosten etc.) bei der Lösungsfindung genutzt werden - also die Wirtschaftlichkeit einer Lösung.)
 
 #### Reales Experiment (d.h. am echten System) nicht möglich
 - zu kostspielig
@@ -29,3 +31,62 @@ Computersimulation ist die Nachbildung realer Systeme mit Computern. Der Fokus d
 >Simulation wenn:
 >- ... ein Problem zu komplex ist, um es mit analytischen Methoden zu lösen
 >- ... echte Experimente aus praktischen, zeitlichen, finanziellen, sicherheitstechnischen oder anderwertigen Gründen nicht durchführbar sind.
+
+### Fragestellungen welche mit Simulation bearbeitet werden
+
+1. Überprüfung von Hypothesen:
+Testen und Validieren von Annahmen und Theorien durch Simulation
+2. Vorhersage
+Prognose zukünftiger Systemzustände und Entwicklungen
+3. Verbesserung
+Optimierung und Weiterentwicklung bestehender Systeme und Prozesse
+4. Design/Gestaltung
+Entwicklung und Planung neuer Systeme oder Komponenten
+5. Lehre
+Einsatz von Simulationen zu Ausbildungs- und Schulungszwecken
+6. Unterhaltung
+Verwendung von Simulationen für Spiele und Entertainment-Anwendungen (*GTA als Real Life Simulator* :D )
+
+### Probleme der Modellierung und Simulation
+- **Toy Duck Approach** bei der Modellierung
+*"Wind it up and let it run"* Ein zu vereinfachter, oberflächlicher Ansatz ohne tieferes Verständnis des Systems wird gewählt.
+-  **Modellgültigkeit**
+Inwieweit sind die abgeleiteten Annahmen auf die reale Welt übertragbar? Frage nach der Validität und Übertragbarkeit der Simulationsergebnisse
+- Es können **keine allgemeingültigen Aussagen** abgeleitet werden
+Stattdessen nur eine Sammlung von Experimenten, die für einen spezifischen Kontext gültig sind. Die Ergebnisse sind kontextabhängig und nicht universell anwendbar.
+- **Optimale Problemlösung** kann **nicht** garantiert werden
+Es gibt keine Garantie, dass die durch Simulation gefundene Lösung tatsächlich optimal ist
+
+### Anforderungen an die Durchführung einer Simulation
+Korrekte, d.h. angemessene Realisierung/Implementierung in Bezug auf:
+- Dynamisches Verhalten
+- Keine Kausalitätsfehler
+- Strategien zur Konfliktlösung (Zeitliche/Ressourcen Konflikte in der Implementierung oder im Modell)
+- Angemessene numerische Methoden und Wahl der Schrittweite, z.B. zur Vermeidung von numerischen Ungenauigkeiten oder Instabilitäten
+Die Simulation soll effizient durchgeführt werden können:
+- Parallele, verteilte Ansätze
+
+> In einer Simulation ist es wichtig, dass die modellierten Beziehungen zwischen Variablen oder Ereignissen auf echten Kausalzusammenhängen basieren und nicht nur auf beobachteten Korrelationen. **Korrelation**: Zwei Ereignisse treten gemeinsam auf oder zwei Variablen bewegen sich ähnlich. (*Wenn mehr Störche in einer Region sind, werden dort mehr Babys geboren*) **Kausalität**: Ein Ereignis ist tatsächlich die direkte Ursache für ein anderes. (*Wenn man Wasser erhitzt, steigt die Wassertemperatur*)
+
+### Die zwei Hauptbereiche der Modellierung und Simulation
+
+#### Kontinuierliche Modellierung und Simulation
+- Gleichungsmodelle mit unendlich vielen Änderungen in jedem Zeitintervall
+- Explizite Beziehungen zwischen Zuständen und Zeit (und daraus resultierende Unstetigkeiten) werden nicht berücksichtigt
+![Kontinuierlich](img/Kontinuierlich.svg)
+
+#### Diskrete Modellierung und Simulation
+- In jedem Zeitintervall gibt es nur endlich viele relevante/interessante Änderungen
+- Zustandsübergänge erfolgen zu präzisen Zeitpunkten
+![alt text](img/Diskret.svg)
+
+#### Anwendungsbereiche
+
+| Kontinuierliche Simulation  | Diskrete Simulation   |
+|---|---|
+| Elektronik  | Produktions-Systeme  |
+| Mechatronik  | Transport-Systeme  |
+| Regelungstechnik  | Geschäftsprozesse  |
+| Wetter-Berechnungen  | LAN-Simulation  |
+| Wirtschafts-Modelle  | Logistik  |
+| ...  | ...  |
